@@ -12,15 +12,31 @@
 		</h3>
 	</div>
 	<br>
+	<g:if test="${errorMessage}">
+		<div class="row">
+			<div class="alert alert-danger">
+				${errorMessage}
+			</div>
+		</div>
+	</g:if>
 	<g:form>
 		<div align="center">
+			<input class="textox" placeholder="Nombre" type="text" name="nombre"
+				value="${objetoCreador?.nombre}"><br> <br> <input
+				class="textox" placeholder="Apellido" type="text" name="apellido"
+				value="${objetoCreador?.apellido}"><br> <br> <label
+				for="fechaDeCumpleanios"> <g:message
+					code="usuario.fechaDeCumpleanios.label"
+					default="Fecha de cumpleaños" /></label>
 			<g:datePicker name="fechaDeCumpleanios" precision="day"
-				value="${usuarioInstance?.fechaDeCumpleanios}" />
+				value="${objetoCreador?.fechaDeCumpleanios}" />
 		</div>
 	</g:form>
 	<br>
 	<g:form controller="usuarios">
 		<div align="center">
+			<g:actionSubmit class="btn" controller="usuarios"
+				action="crear" value="Crear" />
 			<g:actionSubmit class="btn" controller="usuarios" action="volver"
 				value="Volver" />
 		</div>

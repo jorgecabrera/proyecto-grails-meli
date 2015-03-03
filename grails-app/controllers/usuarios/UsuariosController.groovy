@@ -17,4 +17,8 @@ class UsuariosController {
 	def volver(){
 		redirect(uri: "/")
 	}
+	
+	def crear(){
+		redirect(uri: "/")
+	}
 }
