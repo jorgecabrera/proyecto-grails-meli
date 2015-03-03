@@ -115,7 +115,7 @@ footer {
 	</header>
 	<div id="cuerpo">
 		<g:layoutBody />
-		<br>
+		
 	</div>
 	<footer> </footer>
 </body>
