@@ -70,7 +70,7 @@
 
 h3 {
 	font-family: Arial, Helvetica, sans-serif;
-	color: #275710;
+	color: #275710 !important;
 	margin: 0px !important
 }
 
