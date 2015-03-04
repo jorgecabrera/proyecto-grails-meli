@@ -19,10 +19,6 @@ class UsuariosController {
 		[objetoCreador:objetoCreador,errorMessage:errorMessage]
 	}
 
-
-	def modificarUsuario(){
-	}
-
 	def verUsuarios(){
 	}
 

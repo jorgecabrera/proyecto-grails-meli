@@ -17,8 +17,6 @@
 			<g:actionSubmit class="btn" controller="usuarios"
 				action="crearUsuario" value="Crear Usuario" />
 			<g:actionSubmit class="btn" controller="usuarios"
-				action="modificarUsuario" value="Modificar Usuario" />
-			<g:actionSubmit class="btn" controller="usuarios"
 				action="verUsuarios" value="Ver Usuario" />
 		</div>
 	</g:form>
