@@ -5,6 +5,12 @@
 <title>Organizador de regalos</title>
 </head>
 <body>
+	<script>
+function editarUsuario(id){
+	alert(id)
+	//window.location = ""
+}
+</script>
 	<br>
 	<div align="center">
 		<h3>
@@ -25,7 +31,7 @@
 			<tbody>
 				<g:each in="${usuarios}" var="unUsuario">
 
-					<tr>
+					<tr onclick="editarUsuario(${unUsuario.id})">
 						<td>
 							${unUsuario.nombre}
 						</td>
