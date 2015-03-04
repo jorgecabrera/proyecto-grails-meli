@@ -20,6 +20,8 @@ class UsuariosController {
 	}
 
 	def verUsuarios(){
+		
+		[usuarios:Usuario.list()]
 	}
 
 	def volver(){

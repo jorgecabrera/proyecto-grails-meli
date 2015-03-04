@@ -7,6 +7,15 @@
 <html lang="en" class="no-js">
 <!--<![endif]-->
 <style>
+table {
+    border: 1px solid black !important;
+    text-align: center !important;
+	width: 85% !important;
+}
+th, td {
+    text-align: center !important;
+}
+
 .btn {
 	background: #34d976;
 	background-image: -webkit-linear-gradient(top, #34d976, #2bb839);
