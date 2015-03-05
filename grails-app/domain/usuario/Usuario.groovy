@@ -20,7 +20,7 @@ class Usuario {
 		apellido=unApellido
 		fechaDeCumpleanios=unaFechaDeCumpleanios
 		dni=unDni
-		regaloActual=null
+		regaloActual=new Regalo(unaFechaDeCumpleanios)
 		historialDeRegalos=new ArrayList<Regalo>()
 	}
 }

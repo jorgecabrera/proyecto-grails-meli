@@ -27,9 +27,9 @@
 				<g:message code="${unUsuario.fechaDeCumpleanios}" />
 			</label> <br> <label for="regaloActual2"> <g:message
 					code="Regalo actual:" /></label> <label for="regaloActual2"> <g:message
-					code="${unUsuario.regaloActual}" />
+					code="${unUsuario.regaloActual.url}" />
 			</label><br> <br> <label><g:message
-					code="Regalos anteriores" /><br> <br></label>
+					code="Regalos" /><br> <br></label>
 			<div align="center">
 				<table border="1" class="table table-condensed">
 					<thead>
