@@ -49,7 +49,7 @@
 	<g:else>
 		<div class="row" align="center">
 			<div class="alert alert-info">
-				Hoy no hay cumpleaños
+				Hoy no hay cumpleaños...
 			</div>
 		</div>
 	</g:else>

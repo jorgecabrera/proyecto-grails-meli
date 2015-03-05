@@ -23,7 +23,7 @@ class Regalo {
 		else{
 	
 			this.fechaRegalado=unaFecha}
-		this.url="NO HAY REGALO"
+		this.url="Regalo a asignar"
 		this.regalado=false
 	}
 }

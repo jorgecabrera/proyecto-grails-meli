@@ -17,6 +17,8 @@
 		<div align="center">
 			<g:actionSubmit class="btn" controller="usuarios"
 				action="confirmarRegalo" value="Regalar" />
+			<g:actionSubmit class="btn" controller="usuarios" action="volver"
+				value="Volver" />
 		</div>
 	</g:form>
 	<br>
