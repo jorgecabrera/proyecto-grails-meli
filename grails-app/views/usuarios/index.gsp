@@ -18,32 +18,41 @@
 		</h3>
 	</div>
 	<br>
-	<div align="center">
-		<table border="1">
-			<thead>
-				<tr>
-					<th>Nombre</th>
-					<th>Apellido</th>
-					<th>Regalo</th>
-				</tr>
-			</thead>
-			<tbody>
-				<g:each in="${regalosDeHoy}" var="unRegalo">
-					<tr onclick="regalar(${unRegalo.id})">
-						<td>
-							${unRegalo.usuario.nombre}
-						</td>
-						<td>
-							${unRegalo.usuario.apellido}
-						</td>
-						<td>
-							${unRegalo.url}
-						</td>
+	<g:if test="${regalosDeHoy!=[]}">
+		<div align="center">
+			<table border="1">
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Apellido</th>
+						<th>Regalo</th>
 					</tr>
-				</g:each>
-			</tbody>
-		</table>
-	</div>
+				</thead>
+				<tbody>
+					<g:each in="${regalosDeHoy}" var="unRegalo">
+						<tr onclick="regalar(${unRegalo.id})">
+							<td>
+								${unRegalo.usuario.nombre}
+							</td>
+							<td>
+								${unRegalo.usuario.apellido}
+							</td>
+							<td>
+								${unRegalo.url}
+							</td>
+						</tr>
+					</g:each>
+				</tbody>
+			</table>
+		</div>
+	</g:if>
+	<g:else>
+		<div class="row" align="center">
+			<div class="alert alert-info">
+				Hoy no hay cumpleaños
+			</div>
+		</div>
+	</g:else>
 	<br>
 	<g:form controller="usuarios">
 		<div align="center">
