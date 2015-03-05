@@ -3,6 +3,7 @@
 <head>
 <meta name="layout" content="main" />
 <title>Organizador de regalos</title>
+
 </head>
 <body>
 	<br>
@@ -13,7 +14,7 @@
 	</div>
 	<br>
 	<g:if test="${errorMessage}">
-		<div class="row">
+		<div class="row" align="center">
 			<div class="alert alert-danger">
 				${errorMessage}
 			</div>
@@ -26,11 +27,11 @@
 				class="textox" placeholder="Apellido" type="text" name="apellido"
 				value="${objetoCreador.apellido}"><br> <br> <input
 				class="textox" placeholder="DNI" type="text" name="dni"
-				value="${objetoCreador.dni}"><br> <br>
-			<label for="fechaDeCumpleanios"> <g:message
+				value="${objetoCreador.dni}"><br> <br> <label
+				for="fechaDeCumpleanios"> <g:message
 					code="usuario.fechaDeCumpleanios.label"
-					default="Fecha de cumpleaños" /></label>
-			<g:datePicker name="fechaDeCumpleanios" precision="day"
+					default="Fecha de nacimiento" /></label>
+			<calendar:datePicker years="1900-2050" dateFormat="%d/%m/%Y" name="fechaDeCumpleanios"
 				value="${objetoCreador.fechaDeCumpleanios}" />
 			<br> <br>
 			<g:actionSubmit class="btn" controller="usuarios" action="crear"

@@ -15,4 +15,12 @@ class PersistenciaService {
 		else
 			unUsuario.save(flush:true)
 	}
+	
+	def obtenerUsuarioPorID(int id){
+		Usuario unaPersona = Usuario.get(id)
+	}
+	
+	def guardarModificado(Usuario unUsuario){
+			unUsuario.save(flush:true)
+	}
 }
