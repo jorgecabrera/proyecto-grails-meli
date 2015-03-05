@@ -1,6 +1,7 @@
 package usuarios
 
 import creador.ClaseCreadora
+import regalo.Regalo
 import usuario.Usuario
 import excepciones.ExcepcionSoloLetras
 import excepciones.ExcepcionVacio
@@ -14,8 +15,10 @@ class UsuariosController {
 	def validacionService
 	def objetoCreador=new ClaseCreadora()
 	def persistenciaService
-	
-	def index(){        
+
+	def index(){   
+		List<Regalo> regalosDeHoy=persistenciaService.obtenerRegalosHoy()
+		[regalosDeHoy:regalosDeHoy]
 	}
 
 	def crearUsuario(){

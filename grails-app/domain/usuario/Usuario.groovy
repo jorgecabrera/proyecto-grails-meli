@@ -22,5 +22,6 @@ class Usuario {
 		dni=unDni
 		regaloActual=new Regalo(unaFechaDeCumpleanios)
 		historialDeRegalos=new ArrayList<Regalo>()
+		historialDeRegalos.add(regaloActual)
 	}
 }

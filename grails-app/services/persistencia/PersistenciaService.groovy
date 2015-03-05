@@ -2,6 +2,7 @@ package persistencia
 
 import excepciones.ExcepcionYaExisteElUsuario
 import grails.transaction.Transactional
+import regalo.Regalo
 import usuario.Usuario
 
 @Transactional
@@ -22,5 +23,9 @@ class PersistenciaService {
 	
 	def guardarModificado(Usuario unUsuario){
 			unUsuario.save(flush:true)
+	}
+	
+	def obtenerRegalosHoy(){
+		 def regalos= Regalo.findAllByFechaRegalado(new Date().clearTime())
 	}
 }
