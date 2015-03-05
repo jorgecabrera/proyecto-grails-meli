@@ -163,5 +163,16 @@ class UsuariosController {
 		redirect(action: "verUsuarios")
 	}
 	
+	def regalar(int id){
+		Regalo unRegalo = persistenciaService.obtenerRegaloPorID(id)
+		[unRegalo:unRegalo]
+	}
+	
+	def confirmarRegalo(){
+		Usuario unUsuario = persistenciaService.obtenerUsuarioPorID(params.id as int)
+		unUsuario.confirmarRegaloActual()
+		persistenciaService.guardarModificado(unUsuario)
+		redirect(action: "index")
+	}
 	
 }

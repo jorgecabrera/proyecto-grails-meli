@@ -7,6 +7,7 @@ class Regalo {
 	String url
 	Date fechaRegalado
 	static belongsTo = [usuario:Usuario]
+	Boolean regalado
 
 	static constraints = {
 	}
@@ -23,5 +24,6 @@ class Regalo {
 	
 			this.fechaRegalado=unaFecha}
 		this.url="NO HAY REGALO"
+		this.regalado=false
 	}
 }

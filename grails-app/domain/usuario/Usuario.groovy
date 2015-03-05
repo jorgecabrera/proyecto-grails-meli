@@ -22,6 +22,15 @@ class Usuario {
 		dni=unDni
 		regaloActual=new Regalo(unaFechaDeCumpleanios)
 		historialDeRegalos=new ArrayList<Regalo>()
+	}
+	
+	def confirmarRegaloActual(){
+		regaloActual.regalado=true
 		historialDeRegalos.add(regaloActual)
+		this.regaloActual=new Regalo(fechaDeCumpleanios)
+		Date unaFecha=new Date()
+		unaFecha.setYear(unaFecha.getYear()+1)
+		unaFecha.clearTime()
+		regaloActual.setFechaRegalado(unaFecha)
 	}
 }

@@ -5,10 +5,16 @@
 <title>Organizador de regalos</title>
 </head>
 <body>
+	<script>
+		function regalar(id) {
+			window.location = "/proyecto-grails-meli/usuarios/regalar/"
+					+ id
+		}
+	</script>
 	<br>
 	<div align="center">
 		<h3>
-			<g:message code="Bienvenid@!" />
+			<g:message code="¡Bienvenid@! Hoy cumplen..." />
 		</h3>
 	</div>
 	<br>
@@ -23,7 +29,7 @@
 			</thead>
 			<tbody>
 				<g:each in="${regalosDeHoy}" var="unRegalo">
-					<tr >
+					<tr onclick="regalar(${unRegalo.id})">
 						<td>
 							${unRegalo.usuario.nombre}
 						</td>

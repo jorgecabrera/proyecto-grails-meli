@@ -26,6 +26,10 @@ class PersistenciaService {
 	}
 	
 	def obtenerRegalosHoy(){
-		 def regalos= Regalo.findAllByFechaRegalado(new Date().clearTime())
+		 def regalos= Regalo.findAllByFechaRegaladoAndRegalado(new Date().clearTime(),false)
+	}
+	
+	def obtenerRegaloPorID(int id){
+		Regalo unRegalo = Regalo.get(id)
 	}
 }
