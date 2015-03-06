@@ -16,7 +16,7 @@ class UsuariosController {
 	def objetoCreador=new ClaseCreadora()
 	def persistenciaService
 
-	def index(){   
+	def index(){
 		List<Regalo> regalosDeHoy=persistenciaService.obtenerRegalosHoy()
 		[regalosDeHoy:regalosDeHoy]
 	}
@@ -107,18 +107,18 @@ class UsuariosController {
 
 		redirect(uri: "/")
 	}
-	
+
 	def editarUsuario(){
 		Usuario unUsuario = persistenciaService.obtenerUsuarioPorID(params.id as int)
 		[unUsuario:unUsuario]
 	}
-	
+
 	def modificar(){
 		Usuario unUsuario = persistenciaService.obtenerUsuarioPorID(params.id as int)
 		unUsuario.nombre=params.nombre
 		unUsuario.apellido=params.apellido
 		unUsuario.dni=params.dni
-		
+
 		String un= params.fechaDeCumpleanios_year
 		if (params.fechaDeCumpleanios_month.length()==1)
 			un=un+"-0"+params.fechaDeCumpleanios_month
@@ -149,7 +149,7 @@ class UsuariosController {
 			render (view: "/usuarios/editarUsuario", model: [unUsuario:unUsuario,errorMessage:errorMessage])
 			return
 		}
-
+		unUsuario.getRegaloActual().definirFechaRegalo(unUsuario.getFechaDeCumpleanios())
 		try{
 			persistenciaService.guardarModificado(unUsuario)
 		}
@@ -162,17 +162,16 @@ class UsuariosController {
 		errorMessage = null
 		redirect(action: "verUsuarios")
 	}
-	
+
 	def regalar(int id){
 		Regalo unRegalo = persistenciaService.obtenerRegaloPorID(id)
 		[unRegalo:unRegalo]
 	}
-	
+
 	def confirmarRegalo(){
 		Usuario unUsuario = persistenciaService.obtenerUsuarioPorID(params.id as int)
 		unUsuario.confirmarRegaloActual()
 		persistenciaService.guardarModificado(unUsuario)
 		redirect(action: "index")
 	}
-	
 }

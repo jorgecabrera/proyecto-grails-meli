@@ -13,6 +13,12 @@ class Regalo {
 	}
 
 	def Regalo(Date unaFecha){
+		this.definirFechaRegalo(unaFecha)
+		this.url="Regalo a asignar"
+		this.regalado=false
+	}
+
+	def definirFechaRegalo(Date unaFecha){
 		Date fechaDeComparacion=new Date()
 		fechaDeComparacion.clearTime()
 		unaFecha.setYear(fechaDeComparacion.getYear())
@@ -21,9 +27,7 @@ class Regalo {
 			this.fechaRegalado=unaFecha
 		}
 		else{
-	
-			this.fechaRegalado=unaFecha}
-		this.url="Regalo a asignar"
-		this.regalado=false
+			this.fechaRegalado=unaFecha
+		}
 	}
 }

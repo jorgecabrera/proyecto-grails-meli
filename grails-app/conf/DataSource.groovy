@@ -16,7 +16,7 @@ hibernate {
 environments {
 	development {
 		dataSource {
-			dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
+			dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
 			url = "jdbc:mysql://localhost/proyecto_grails_meli?useUnicode=yes&characterEncoding=UTF-8"
 			username = "root"
 			password = "mysql"
