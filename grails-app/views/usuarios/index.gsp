@@ -53,7 +53,6 @@
 			</div>
 		</div>
 	</g:else>
-	<br>
 	<g:form controller="usuarios">
 		<div align="center">
 			<g:actionSubmit class="btn" controller="usuarios"
