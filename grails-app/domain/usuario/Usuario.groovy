@@ -27,7 +27,7 @@ class Usuario {
 	def confirmarRegaloActual(){
 		regaloActual.regalado=true
 		historialDeRegalos.add(regaloActual)
-		this.regaloActual=new Regalo(fechaDeCumpleanios)
+		this.regaloActual=new Regalo(fechaDeCumpleanios,"")
 		Date unaFecha=new Date()
 		unaFecha.setYear(unaFecha.getYear()+1)
 		unaFecha.clearTime()

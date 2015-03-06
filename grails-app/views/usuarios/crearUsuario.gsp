@@ -7,18 +7,25 @@
 </head>
 <body>
 	<script>
-		function mostrarBuscador() {
-			$("#buscador").show();
+		function mostrarBuscador() {		
+			$("#selectorRegalo").fadeOut(100,otra);
 		}
+		function otra(){
+			$("#buscador").fadeIn(900);
+			}
 	</script>
 	<script>
 		function escribirUrl(url) {
-			alert("Palo se la ");
 			$("#URLregalo").val(url);
+			$("#buscador").fadeOut(250,otra2);
+
 		}
+		function otra2(){
+			$("#selectorRegalo").fadeIn(800);}
 	</script>
 	<script type="text/javascript">
 		function buscar() {
+			$("#tablaBuscador").fadeIn(1000);
 			$("#respuesta_api").empty()
 			function mostrarResultado(data) {
 				$.each(data.results, agregarResultado)
@@ -29,7 +36,6 @@
 				str = str.replace("thumbnail$", item.thumbnail)
 				str = str.replace("titulo$", item.title)
 				str = str.replace("precio$", item.price)
-				console.log(item)
 				$("#respuesta_api").append(str);
 			}
 			function mostrarError() {
@@ -79,27 +85,26 @@
 			<calendar:datePicker years="1900-2050" dateFormat="%d/%m/%Y"
 				name="fechaDeCumpleanios"
 				value="${objetoCreador.fechaDeCumpleanios}" />
-			<br> <br> <label for="regaloActual"> <g:message
-					default="Regalo" /></label> <input class="textox" placeholder="Regalo"
+			<br>  <label for="regaloActual"> <g:message
+					default="Regalo" /></label> 
+					
+				 	<div class="visible" id="selectorRegalo">
+					<input class="textox" placeholder="Regalo"
 				type="text" id="URLregalo" name="regalo"
 				value="${objetoCreador.urlRegalo}">
 			<button type="button" class="btn" onclick="mostrarBuscador()">Asignar</button>
 			<br> <br>
-
+</div>
 
 			<div class="noVisible" id="buscador">
 				<input class="textox" placeholder="Buscar" type="text"
 					name="busqueda" id="busqueda">
 				<button type="button" class="btn" onclick="buscar()">Buscar</button>
 				<br> <br>
-
+			<div class="noVisible" id="tablaBuscador">
 				<table>
 					<thead>
-						<tr>
-							<th></th>
-							<th></th>
-							<th></th>
-						</tr>
+		
 					</thead>
 					<tbody id="respuesta_api">
 
@@ -110,7 +115,7 @@
 
 
 				</table>
-
+</div>
 
 			</div>
 
