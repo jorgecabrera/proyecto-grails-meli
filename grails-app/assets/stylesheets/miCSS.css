@@ -1,5 +1,13 @@
 @CHARSET "UTF-8";
 
+.visible {
+	display: true;
+}
+
+.noVisible {
+	display: none;
+}
+
 .alert-danger {
 	width: 85% !important;
 }

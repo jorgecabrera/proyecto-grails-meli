@@ -44,6 +44,7 @@ class UsuariosController {
 		objetoCreador.nombre=""
 		objetoCreador.apellido=""
 		objetoCreador.dni=""
+		objetoCreador.urlRegalo=""
 		objetoCreador.fechaDeCumpleanios=new Date()
 		errorMessage = null
 		redirect(uri: "/")
@@ -56,6 +57,7 @@ class UsuariosController {
 		objetoCreador.nombre=params.nombre
 		objetoCreador.apellido=params.apellido
 		objetoCreador.dni=params.dni
+		objetoCreador.urlRegalo=params.regalo
 
 		String un= params.fechaDeCumpleanios_year
 		if (params.fechaDeCumpleanios_month.length()==1)
@@ -102,6 +104,7 @@ class UsuariosController {
 		objetoCreador.nombre=""
 		objetoCreador.apellido=""
 		objetoCreador.dni=""
+		objetoCreador.urlRegalo=""
 		objetoCreador.fechaDeCumpleanios=new Date()
 		errorMessage = null
 

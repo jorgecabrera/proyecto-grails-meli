@@ -11,10 +11,13 @@ class Regalo {
 
 	static constraints = {
 	}
-
-	def Regalo(Date unaFecha){
+	
+	def Regalo(Date unaFecha,String urlRegalo){
 		this.definirFechaRegalo(unaFecha)
+		if(urlRegalo=="")
 		this.url="Regalo a asignar"
+		else
+		this.url=urlRegalo
 		this.regalado=false
 	}
 

@@ -15,12 +15,12 @@ class Usuario {
 		regaloActual nullable:true
     }
 	
-	def Usuario(String unNombre,String unApellido, Date unaFechaDeCumpleanios,String unDni){
+	def Usuario(String unNombre,String unApellido, Date unaFechaDeCumpleanios,String unDni,String urlRegalo){
 		nombre=unNombre
 		apellido=unApellido
 		fechaDeCumpleanios=unaFechaDeCumpleanios
 		dni=unDni
-		regaloActual=new Regalo(unaFechaDeCumpleanios)
+		regaloActual=new Regalo(unaFechaDeCumpleanios,urlRegalo)
 		historialDeRegalos=new ArrayList<Regalo>()
 	}
 	
