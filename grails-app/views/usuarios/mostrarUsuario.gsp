@@ -27,7 +27,7 @@
 				<g:message code="${unUsuario.fechaDeCumpleanios}" />
 			</label> <br> <label for="regaloActual2"> <g:message
 					code="Regalo actual:" /></label> <label for="regaloActual2"> <g:message
-					code="${unUsuario.regaloActual.url}" />
+					code="${unUsuario.regaloActual.urlRegalo}" />
 			</label><br> <br> <label><g:message
 					code="Regalos" /><br> <br></label>
 			<div align="center">
@@ -42,7 +42,7 @@
 						<g:each in="${unUsuario.historialDeRegalos}" var="unRegalo">
 							<tr>
 								<td>
-									${unRegalo.url}
+									${unRegalo.urlRegalo}
 								</td>
 								<td>
 									${unRegalo.fechaRegalado}

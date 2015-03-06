@@ -38,7 +38,7 @@
 								${unRegalo.usuario.apellido}
 							</td>
 							<td>
-								${unRegalo.url}
+								${unRegalo.urlRegalo}
 							</td>
 						</tr>
 					</g:each>
@@ -58,7 +58,7 @@
 			<g:actionSubmit class="btn" controller="usuarios"
 				action="crearUsuario" value="Crear Usuario" />
 			<g:actionSubmit class="btn" controller="usuarios"
-				action="verUsuarios" value="Ver Usuario" />
+				action="verUsuarios" value="Ver Usuarios" />
 		</div>
 	</g:form>
 	<br>

@@ -134,6 +134,7 @@ class UsuariosController {
 
 		unUsuario.fechaDeCumpleanios= new Date().parse("yyyy-MM-dd",un)
 
+		unUsuario.regaloActual.urlRegalo=params.regalo
 		try {
 			validacionService.validarCreacionDelUsuario(unUsuario)
 		}
