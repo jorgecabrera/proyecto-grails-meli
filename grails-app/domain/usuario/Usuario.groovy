@@ -15,19 +15,19 @@ class Usuario {
 		regaloActual nullable:true
     }
 	
-	def Usuario(String unNombre,String unApellido, Date unaFechaDeCumpleanios,String unDni,String urlRegalo){
+	def Usuario(String unNombre,String unApellido, Date unaFechaDeCumpleanios,String unDni,String urlRegalo,String urlImagen,float precioRegalo){
 		nombre=unNombre
 		apellido=unApellido
 		fechaDeCumpleanios=unaFechaDeCumpleanios
 		dni=unDni
-		regaloActual=new Regalo(unaFechaDeCumpleanios,urlRegalo)
+		regaloActual=new Regalo(unaFechaDeCumpleanios,urlRegalo,urlImagen,precioRegalo)
 		historialDeRegalos=new ArrayList<Regalo>()
 	}
 	
 	def confirmarRegaloActual(){
 		regaloActual.regalado=true
 		historialDeRegalos.add(regaloActual)
-		this.regaloActual=new Regalo(fechaDeCumpleanios,"")
+		this.regaloActual=new Regalo(fechaDeCumpleanios,"","",0)
 		Date unaFecha=new Date()
 		unaFecha.setYear(unaFecha.getYear()+1)
 		unaFecha.clearTime()

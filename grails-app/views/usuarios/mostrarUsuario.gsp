@@ -28,14 +28,16 @@
 			</label> <br> <label for="regaloActual2"> <g:message
 					code="Regalo actual:" /></label> <label for="regaloActual2"> <g:message
 					code="${unUsuario.regaloActual.urlRegalo}" />
-			</label><br> <br> <label><g:message
-					code="Regalos" /><br> <br></label>
+			</label><br> <br> <label><g:message code="Regalos" /><br>
+				<br></label>
 			<div align="center">
 				<table border="1" class="table table-condensed">
 					<thead>
 						<tr>
 							<th>Url</th>
 							<th>Fecha</th>
+							<th>Imagen</th>
+							<th>Precio</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -46,6 +48,10 @@
 								</td>
 								<td>
 									${unRegalo.fechaRegalado}
+								</td>
+								<td><img src='${unRegalo.urlImagen}' height='42' width='42'></td>
+								<td>
+									${unRegalo.precioRegalo}
 								</td>
 							</tr>
 						</g:each>

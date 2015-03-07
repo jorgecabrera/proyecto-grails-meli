@@ -1,4 +1,5 @@
-/messages.properties
+/_testemails/
+/messages_fr.properties
 /grails/
 /org/
 /AssetPipelineBootStrap$_closure1.class
@@ -94,6 +95,7 @@
 /asset/
 /creador/
 /excepciones/
+/mail/
 /persistencia/
 /proyecto/
 /regalo/
@@ -102,6 +104,3 @@
 /usuario/
 /usuarios/
 /validacion/
-/dbdoc/
-/javascripts/
-/uglifyjs/

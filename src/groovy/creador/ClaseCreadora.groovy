@@ -9,6 +9,8 @@ class ClaseCreadora {
 	String dni
 	Date fechaDeCumpleanios
 	String urlRegalo
+	String urlImagen
+	float precioRegalo
 	
 	def ClaseCreadora(){
 		this.nombre=""
@@ -16,11 +18,13 @@ class ClaseCreadora {
 		this.dni=""
 		this.fechaDeCumpleanios=new Date()
 		this.urlRegalo=""
+		this.urlImagen=""
+		this.precioRegalo=0;
 		
 	}
 	
 	def crearUsuario(){
-		new Usuario(nombre,apellido,fechaDeCumpleanios,dni,urlRegalo)
+		new Usuario(nombre,apellido,fechaDeCumpleanios,dni,urlRegalo,urlImagen,precioRegalo)
 	}
 
 }

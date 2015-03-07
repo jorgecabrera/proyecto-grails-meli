@@ -58,6 +58,8 @@ class UsuariosController {
 		objetoCreador.apellido=params.apellido
 		objetoCreador.dni=params.dni
 		objetoCreador.urlRegalo=params.regalo
+		objetoCreador.urlImagen=params.urlImagen
+		objetoCreador.precioRegalo=params.precioRegalo as float
 
 		String un= params.fechaDeCumpleanios_year
 		if (params.fechaDeCumpleanios_month.length()==1)
@@ -105,6 +107,8 @@ class UsuariosController {
 		objetoCreador.apellido=""
 		objetoCreador.dni=""
 		objetoCreador.urlRegalo=""
+		objetoCreador.urlImagen=""
+		objetoCreador.precioRegalo=0
 		objetoCreador.fechaDeCumpleanios=new Date()
 		errorMessage = null
 
@@ -132,9 +136,11 @@ class UsuariosController {
 		else
 			un=un+"-"+params.fechaDeCumpleanios_day
 
-		unUsuario.fechaDeCumpleanios= new Date().parse("yyyy-MM-dd",un)
+
 
 		unUsuario.regaloActual.urlRegalo=params.regalo
+		unUsuario.regaloActual.urlImagen=params.urlImagen
+		unUsuario.regaloActual.precioRegalo=params.precioRegalo as float
 		try {
 			validacionService.validarCreacionDelUsuario(unUsuario)
 		}
@@ -153,7 +159,13 @@ class UsuariosController {
 			render (view: "/usuarios/editarUsuario", model: [unUsuario:unUsuario,errorMessage:errorMessage])
 			return
 		}
-		unUsuario.getRegaloActual().definirFechaRegalo(unUsuario.getFechaDeCumpleanios())
+		
+		if(unUsuario.fechaDeCumpleanios.compareTo(new Date().parse("yyyy-MM-dd",un))){
+			println"son distintas"
+			unUsuario.fechaDeCumpleanios= new Date().parse("yyyy-MM-dd",un)
+			unUsuario.getRegaloActual().definirFechaRegalo(unUsuario.getFechaDeCumpleanios())
+		}
+
 		try{
 			persistenciaService.guardarModificado(unUsuario)
 		}

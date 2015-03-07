@@ -5,6 +5,8 @@
 <div class="visible" id="selectorRegalo">
 	<input class="textox" placeholder="Regalo" type="text" id="URLregalo"
 		name="regalo" value="${objetoCreador.urlRegalo}">
+	<g:hiddenField id="precioRegalo" name="precioRegalo" value="${objetoCreador.precioRegalo}" />
+	<g:hiddenField id="URLImagen" name="urlImagen" value="${objetoCreador.urlImagen}" />
 	<button type="button" class="btn" onclick="mostrarBuscador()">Asignar</button>
 	<br> <br>
 </div>
