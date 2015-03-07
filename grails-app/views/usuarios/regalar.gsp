@@ -12,15 +12,34 @@
 		</h3>
 	</div>
 	<br>
-	<g:form controller="usuarios">
-		<g:hiddenField name="id" value="${unRegalo.usuario.id}" />
+	<g:if test="${unRegalo.precioRegalo!=0}">
+		<g:form controller="usuarios">
+			<g:hiddenField name="id" value="${unRegalo.usuario.id}" />
+			<div align="center">
+				<a href="${unRegalo.urlRegalo}" target="_blank">Ver el regalo</a><br>
+				<img src='${unRegalo.urlImagen}' height='128' width='128'> <label>$
+					${unRegalo.precioRegalo}
+				</label><br> <br>
+				<g:actionSubmit class="btn" controller="usuarios"
+					action="confirmarRegalo" value="Regalar" />
+				<g:actionSubmit class="btn" controller="usuarios" action="volver"
+					value="Volver" />
+			</div>
+		</g:form>
+	</g:if>
+	<g:else>
 		<div align="center">
-			<g:actionSubmit class="btn" controller="usuarios"
-				action="confirmarRegalo" value="Regalar" />
-			<g:actionSubmit class="btn" controller="usuarios" action="volver"
-				value="Volver" />
+
+			<div class="row" align="center">
+				<div class="alert alert-info">El regalo se encuentra sin
+					asignar, edite el usuario y asignele uno!</div>
+			</div>
+			<g:form controller="usuarios">
+				<g:actionSubmit class="btn" controller="usuarios" action="volver"
+					value="Volver" />
+			</g:form>
 		</div>
-	</g:form>
+	</g:else>
 	<br>
 </body>
 </html>

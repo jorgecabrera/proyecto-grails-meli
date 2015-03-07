@@ -25,21 +25,22 @@
 					<tr>
 						<th>Nombre</th>
 						<th>Apellido</th>
-						<th>Regalo</th>
+						<th>Imagen</th>
+						<th>Link</th>
 					</tr>
 				</thead>
 				<tbody>
 					<g:each in="${regalosDeHoy}" var="unRegalo">
-						<tr onclick="regalar(${unRegalo.id})">
-							<td>
+						<tr>
+							<td  onclick="regalar(${unRegalo.id})">
 								${unRegalo.usuario.nombre}
 							</td>
-							<td>
+							<td  onclick="regalar(${unRegalo.id})">
 								${unRegalo.usuario.apellido}
 							</td>
-							<td>
-								${unRegalo.urlRegalo}
-							</td>
+							<td  onclick="regalar(${unRegalo.id})"><img src='${unRegalo.urlImagen}' height='42' width='42'></td>
+							<td><a href="	${unRegalo.urlRegalo}" target="_blank">Ver
+									regalo</a></td>
 						</tr>
 					</g:each>
 				</tbody>
@@ -48,9 +49,7 @@
 	</g:if>
 	<g:else>
 		<div class="row" align="center">
-			<div class="alert alert-info">
-				Hoy no hay cumpleaños...
-			</div>
+			<div class="alert alert-info">Hoy no hay cumpleaños...</div>
 		</div>
 	</g:else>
 	<g:form controller="usuarios">

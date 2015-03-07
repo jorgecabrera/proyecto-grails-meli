@@ -25,11 +25,20 @@
 				for="fechaDeNacimiento"> <g:message
 					code="Fecha de Nacimiento:" /></label> <label for="fechaDeNacimiento">
 				<g:message code="${unUsuario.fechaDeCumpleanios}" />
-			</label> <br> <label for="regaloActual2"> <g:message
-					code="Regalo actual:" /></label> <label for="regaloActual2"> <g:message
-					code="${unUsuario.regaloActual.urlRegalo}" />
-			</label><br> <br> <label><g:message code="Regalos" /><br>
-				<br></label>
+			</label> <br>
+			<g:if test="${unUsuario.regaloActual.precioRegalo!=0}">
+				<a href="${unUsuario.regaloActual.urlRegalo}" target="_blank">Proximo
+					regalo</a>
+				<br>
+				<br>
+			</g:if>
+			<g:else>
+				<div class="row" align="center">
+					<div class="alert alert-info">El regalo se encuentra sin
+						asignar, edite el usuario y asignele uno!</div>
+				</div>
+			</g:else>
+			<label><g:message code="Regalos" /></label><br> <br>
 			<div align="center">
 				<table border="1" class="table table-condensed">
 					<thead>
@@ -42,18 +51,20 @@
 					</thead>
 					<tbody>
 						<g:each in="${unUsuario.historialDeRegalos}" var="unRegalo">
-							<tr>
-								<td>
-									${unRegalo.urlRegalo}
-								</td>
-								<td>
-									${unRegalo.fechaRegalado}
-								</td>
-								<td><img src='${unRegalo.urlImagen}' height='42' width='42'></td>
-								<td>
-									${unRegalo.precioRegalo}
-								</td>
-							</tr>
+							<g:if test="${unRegalo.regalado}">
+								<tr>
+									<td><a href="	${unRegalo.urlRegalo}" target="_blank">Regalo</a>
+									</td>
+									<td>
+										${unRegalo.fechaRegalado}
+									</td>
+									<td><img src='${unRegalo.urlImagen}' height='42'
+										width='42'></td>
+									<td>
+										${unRegalo.precioRegalo}
+									</td>
+								</tr>
+							</g:if>
 						</g:each>
 					</tbody>
 				</table>

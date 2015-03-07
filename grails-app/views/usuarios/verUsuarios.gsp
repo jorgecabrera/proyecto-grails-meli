@@ -13,7 +13,7 @@ function editarUsuario(id){
 	<br>
 	<div align="center">
 		<h3>
-			<g:message code="Ver usuarios" />
+			<g:message code="Usuarios" />
 		</h3>
 	</div>
 	<br>
