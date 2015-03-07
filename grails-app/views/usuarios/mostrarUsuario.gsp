@@ -69,7 +69,6 @@
 					</tbody>
 				</table>
 			</div>
-			<br> <br>
 		</div>
 		<div align="center">
 			<g:actionSubmit class="btn" controller="usuarios"

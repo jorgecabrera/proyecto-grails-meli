@@ -55,7 +55,6 @@ function editarUsuario(id){
 			<div class="alert alert-info">No existen usuarios aún...</div>
 		</div>
 	</g:else>
-	<br>
 	<g:form controller="usuarios">
 		<div align="center">
 			<g:actionSubmit class="btn" controller="usuarios" action="volver"

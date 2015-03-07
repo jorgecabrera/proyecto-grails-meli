@@ -32,15 +32,19 @@
 				<tbody>
 					<g:each in="${regalosDeHoy}" var="unRegalo">
 						<tr>
-							<td  onclick="regalar(${unRegalo.id})">
+							<td onclick="regalar(${unRegalo.id})">
 								${unRegalo.usuario.nombre}
 							</td>
-							<td  onclick="regalar(${unRegalo.id})">
+							<td onclick="regalar(${unRegalo.id})">
 								${unRegalo.usuario.apellido}
 							</td>
-							<td  onclick="regalar(${unRegalo.id})"><img src='${unRegalo.urlImagen}' height='42' width='42'></td>
-							<td><a href="	${unRegalo.urlRegalo}" target="_blank">Ver
-									regalo</a></td>
+							<td onclick="regalar(${unRegalo.id})"><g:if
+									test="${unRegalo.precioRegalo!=0}">
+									<img src='${unRegalo.urlImagen}' height='42' width='42'>
+								</g:if></td>
+							<td><g:if test="${unRegalo.precioRegalo!=0}">
+									<a href="	${unRegalo.urlRegalo}" target="_blank">Ver regalo</a>
+								</g:if></td>
 						</tr>
 					</g:each>
 				</tbody>

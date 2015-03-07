@@ -1,4 +1,5 @@
 /_testemails/
+/messages.properties
 /messages_fr.properties
 /grails/
 /org/
@@ -95,7 +96,6 @@
 /asset/
 /creador/
 /excepciones/
-/mail/
 /persistencia/
 /proyecto/
 /regalo/
