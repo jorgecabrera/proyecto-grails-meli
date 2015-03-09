@@ -2,7 +2,10 @@ function mostrarBuscador() {
 	$("#selectorRegalo").fadeOut(100, callback1);
 }
 function callback1() {
+	$("#pipo").show();
+	$("#botonModificar").html("Modificar regalo");
 	$("#buscador").fadeIn(900);
+	
 }
 
 function escribirUrl(url, urli, precio) {
