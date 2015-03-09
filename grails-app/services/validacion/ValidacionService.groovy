@@ -4,6 +4,7 @@ import creador.ClaseCreadora
 import excepciones.ExcepcionSoloLetras
 import excepciones.ExcepcionSoloNumeros
 import excepciones.ExcepcionVacio
+import excepciones.ExcepcionDNICorto
 import grails.transaction.Transactional
 
 @Transactional
@@ -26,6 +27,9 @@ class ValidacionService {
 
 	def validarDNI(def unObjetoCreador){
 		def numero
+		if(unObjetoCreador.dni.length()<7){
+			throw new ExcepcionDNICorto("El DNI ingresado es muy corto, verifiquelo")
+		}
 		try {
 			numero=Integer.parseInt(unObjetoCreador.dni)
 		}

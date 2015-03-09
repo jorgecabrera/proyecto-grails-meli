@@ -7,6 +7,7 @@ import excepciones.ExcepcionSoloLetras
 import excepciones.ExcepcionVacio
 import excepciones.ExcepcionSoloNumeros
 import excepciones.ExcepcionYaExisteElUsuario
+import excepciones.ExcepcionDNICorto
 
 class UsuariosController {
 
@@ -89,7 +90,12 @@ class UsuariosController {
 			return
 		}
 		catch(ExcepcionSoloNumeros e){
-			errorMessage = "El campo DNI solo puede tener números"
+			errorMessage = "El campo DNI solo puede tener numeros"
+			render (view: "/usuarios/crearUsuario", model: [objetoCreador:objetoCreador,errorMessage:errorMessage])
+			return
+		}
+		catch(ExcepcionDNICorto e){
+			errorMessage = "El DNI ingresado es demasiado corto, verifiquelo"
 			render (view: "/usuarios/crearUsuario", model: [objetoCreador:objetoCreador,errorMessage:errorMessage])
 			return
 		}
@@ -162,6 +168,11 @@ class UsuariosController {
 		catch(ExcepcionSoloNumeros e){
 			errorMessage = "El campo DNI solo puede tener números"
 			render (view: "/usuarios/editarUsuario", model: [unUsuario:unUsuario,errorMessage:errorMessage])
+			return
+		}
+		catch(ExcepcionDNICorto e){
+			errorMessage = "El DNI ingresado es demasiado corto, verifiquelo"
+			render (view: "/usuarios/crearUsuario", model: [unUsuario:unUsuario,errorMessage:errorMessage])
 			return
 		}
 

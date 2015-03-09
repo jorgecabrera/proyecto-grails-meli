@@ -32,7 +32,7 @@
 			<input class="textox" placeholder="Nombre" type="text" name="nombre"
 				value="${objetoCreador.nombre}"><br> <br> <input
 				class="textox" placeholder="Apellido" type="text" name="apellido"
-				value="${objetoCreador.apellido}"><br> <br> <input
+				value="${objetoCreador.apellido}"><br> <br> <input maxLength=8
 				class="textox" placeholder="DNI" type="text" name="dni"
 				value="${objetoCreador.dni}"><br> <br> <label
 				for="fechaDeCumpleanios"> <g:message
