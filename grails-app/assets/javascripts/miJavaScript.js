@@ -10,6 +10,7 @@ function callback1() {
 
 function escribirUrl(url, urli, precio) {
 	$("#URLregalo").val(url);
+	$("#linkURL").attr("href", url)
 	$("#URLImagen").val(urli);
 	$("#precioRegalo").val(precio);
 	$("#busqueda").val("")
