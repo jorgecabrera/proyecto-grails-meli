@@ -1,19 +1,13 @@
 <!DOCTYPE html>
+<html>
 <head>
-
-
-
+<meta name="layout" content="main" />
+<title>Organizador de regalos</title>
 </head>
-
 <body>
-
-<div>
-
-<span class="label label-info">OK</span>
-
-</div>
-
-
+	<br>
+	<div class="row" align="center">
+		<div class="alert alert-success">OK</div>
+	</div>
 </body>
-
-
+</html>

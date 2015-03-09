@@ -1,3 +1,5 @@
+/_testemails/
+/messages_fr.properties
 /grails/
 /org/
 /AssetPipelineBootStrap$_closure1.class
@@ -102,3 +104,11 @@
 /usuario/
 /usuarios/
 /validacion/
+/hibernate/
+/Config$_run_closure1_closure5.class
+/Config$_run_closure1_closure5_closure6.class
+/Config$_run_closure1_closure5_closure6_closure7.class
+/Config$_run_closure2_closure9.class
+/Config$_run_closure4.class
+/Config$_run_closure4_closure10.class
+/MailController.class
