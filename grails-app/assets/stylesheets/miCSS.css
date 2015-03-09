@@ -8,6 +8,10 @@
 	display: none;
 }
 
+.alert-success {
+	width: 85% !important;
+}
+
 .alert-danger {
 	width: 85% !important;
 }
