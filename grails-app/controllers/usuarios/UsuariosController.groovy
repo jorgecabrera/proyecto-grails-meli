@@ -11,13 +11,15 @@ import excepciones.ExcepcionYaExisteElUsuario
 class UsuariosController {
 
 	static scope = "session"
-	String errorMessage=null
+	def errorMessage=null
 	def validacionService
 	def objetoCreador=new ClaseCreadora()
 	def persistenciaService
 
 	def index(){
-		List<Regalo> regalosDeHoy=persistenciaService.obtenerRegalosHoy()
+
+		def regalosDeHoy=persistenciaService.obtenerRegalosHoy()
+
 		[regalosDeHoy:regalosDeHoy]
 	}
 
@@ -26,12 +28,13 @@ class UsuariosController {
 	}
 
 	def verUsuarios(){
-
 		[usuarios:Usuario.list()]
 	}
 
 	def mostrarUsuario(int id) {
-		Usuario unUsuario = persistenciaService.obtenerUsuarioPorID(id)
+
+		def unUsuario = persistenciaService.obtenerUsuarioPorID(id)
+
 		[unUsuario:unUsuario]
 	}
 
@@ -40,7 +43,6 @@ class UsuariosController {
 	}
 
 	def volver(){
-
 		objetoCreador.nombre=""
 		objetoCreador.apellido=""
 		objetoCreador.dni=""
@@ -52,7 +54,7 @@ class UsuariosController {
 
 	def crear(){
 
-		Usuario usuarioACrear
+		def usuarioACrear
 
 		objetoCreador.nombre=params.nombre
 		objetoCreador.apellido=params.apellido
@@ -61,7 +63,7 @@ class UsuariosController {
 		objetoCreador.urlImagen=params.urlImagen
 		objetoCreador.precioRegalo=params.precioRegalo as float
 
-		String un= params.fechaDeCumpleanios_year
+		def un= params.fechaDeCumpleanios_year
 		if (params.fechaDeCumpleanios_month.length()==1)
 			un=un+"-0"+params.fechaDeCumpleanios_month
 		else
@@ -116,17 +118,21 @@ class UsuariosController {
 	}
 
 	def editarUsuario(){
-		Usuario unUsuario = persistenciaService.obtenerUsuarioPorID(params.id as int)
+
+		def unUsuario = persistenciaService.obtenerUsuarioPorID(params.id as int)
+
 		[unUsuario:unUsuario]
 	}
 
 	def modificar(){
-		Usuario unUsuario = persistenciaService.obtenerUsuarioPorID(params.id as int)
+
+		def unUsuario = persistenciaService.obtenerUsuarioPorID(params.id as int)
+
 		unUsuario.nombre=params.nombre
 		unUsuario.apellido=params.apellido
 		unUsuario.dni=params.dni
 
-		String un= params.fechaDeCumpleanios_year
+		def un= params.fechaDeCumpleanios_year
 		if (params.fechaDeCumpleanios_month.length()==1)
 			un=un+"-0"+params.fechaDeCumpleanios_month
 		else
@@ -136,11 +142,10 @@ class UsuariosController {
 		else
 			un=un+"-"+params.fechaDeCumpleanios_day
 
-
-
 		unUsuario.regaloActual.urlRegalo=params.regalo
 		unUsuario.regaloActual.urlImagen=params.urlImagen
 		unUsuario.regaloActual.precioRegalo=params.precioRegalo as float
+
 		try {
 			validacionService.validarCreacionDelUsuario(unUsuario)
 		}
@@ -159,7 +164,7 @@ class UsuariosController {
 			render (view: "/usuarios/editarUsuario", model: [unUsuario:unUsuario,errorMessage:errorMessage])
 			return
 		}
-		
+
 		if(unUsuario.fechaDeCumpleanios.compareTo(new Date().parse("yyyy-MM-dd",un))){
 			println"son distintas"
 			unUsuario.fechaDeCumpleanios= new Date().parse("yyyy-MM-dd",un)
@@ -180,12 +185,16 @@ class UsuariosController {
 	}
 
 	def regalar(int id){
-		Regalo unRegalo = persistenciaService.obtenerRegaloPorID(id)
+
+		def unRegalo = persistenciaService.obtenerRegaloPorID(id)
+
 		[unRegalo:unRegalo]
 	}
 
 	def confirmarRegalo(){
-		Usuario unUsuario = persistenciaService.obtenerUsuarioPorID(params.id as int)
+
+		def unUsuario = persistenciaService.obtenerUsuarioPorID(params.id as int)
+
 		unUsuario.confirmarRegaloActual()
 		persistenciaService.guardarModificado(unUsuario)
 		redirect(action: "index")
