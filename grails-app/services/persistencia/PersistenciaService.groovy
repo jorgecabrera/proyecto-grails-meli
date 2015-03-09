@@ -6,6 +6,8 @@ import regalo.Regalo
 import usuario.Usuario
 
 @Transactional
+
+//TODO: Acá falta fijarse que las transacciones finalicen correctamente y en base a eso decidir, como está ahora puede fallar y no avisar nunca
 class PersistenciaService {
 
 	def persistir(Usuario unUsuario){
