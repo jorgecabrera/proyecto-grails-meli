@@ -44,8 +44,6 @@
 			<br>
 			<g:render template="templateBusqueda"
 				model="['objetoCreador':unUsuario.regaloActual]" />
-
-
 			<g:actionSubmit class="btn" controller="usuarios" action="modificar"
 				value="Modificar" />
 		</div>

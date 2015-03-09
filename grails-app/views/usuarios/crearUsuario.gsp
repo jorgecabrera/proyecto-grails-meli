@@ -41,14 +41,9 @@
 			<calendar:datePicker years="1900-2050" dateFormat="%d/%m/%Y"
 				name="fechaDeCumpleanios"
 				value="${objetoCreador.fechaDeCumpleanios}" />
-			<br> 
-
-			<g:render template="templateBusqueda" model="['objetoCreador':objetoCreador]"/>
-
-
-
-
-
+			<br>
+			<g:render template="templateBusqueda"
+				model="['objetoCreador':objetoCreador]" />
 			<g:actionSubmit class="btn" controller="usuarios" action="crear"
 				value="Crear" />
 			<g:actionSubmit class="btn" controller="usuarios" action="volver"
