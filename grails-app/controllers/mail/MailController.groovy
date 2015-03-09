@@ -6,7 +6,7 @@ class MailController {
 	def mail() {
 		def regalosDelMes=persistenciaService.obtenerRegalosDelMes()
 		float sumaTotal=0
-		//regalosDelMes.each {sumaTotal+=it.getPrecioRegalo()}
+		regalosDelMes.each {sumaTotal+=it.getPrecioRegalo()}
 		sendMail {
 			to "pablogallazzi@gmail.com"
 			subject "Monto total mensual"
