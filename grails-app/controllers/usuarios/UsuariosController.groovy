@@ -23,10 +23,10 @@ class UsuariosController {
 	}
 
 	def crearUsuario(){
-		
+
 		def errorMessage=null
 		def objetoCreador=new ClaseCreadora()
-		
+
 		[objetoCreador:objetoCreador,errorMessage:errorMessage]
 	}
 
@@ -117,6 +117,12 @@ class UsuariosController {
 		def unUsuario = persistenciaService.obtenerUsuarioPorID(params.id as int)
 
 		[unUsuario:unUsuario]
+	}
+
+	def eliminar(){
+		def unUsuario = persistenciaService.obtenerUsuarioPorID(params.id as int)
+		unUsuario.delete(flush:true)
+		redirect(action: "verUsuarios")
 	}
 
 	def modificar(){
