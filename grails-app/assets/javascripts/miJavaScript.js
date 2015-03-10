@@ -5,7 +5,7 @@ function callback1() {
 	$("#pipo").show();
 	$("#botonModificar").html("Modificar regalo");
 	$("#buscador").fadeIn(900);
-	
+
 }
 
 function escribirUrl(url, urli, precio) {
@@ -49,5 +49,25 @@ function buscar() {
 		promise.done(mostrarResultado);
 		promise.fail(mostrarError);
 	}
-
 }
+
+(function() {
+	var oldCreate = Calendar.prototype.create
+	Calendar.prototype.create = function(_par) {
+		oldCreate.call(this, _par)
+		var parent = null
+		if (!_par) {
+			// default parent is the document body, in which case we create
+			// a popup calendar.
+			parent = document.getElementsByTagName("body")[0];
+			this.isPopup = true;
+		} else {
+			parent = _par;
+			this.isPopup = false;
+		}
+		var elTD = $(parent).find("td").filter(function() {
+			return $.text([ this ]) == 'Limpar';
+		})
+		elTD.remove()
+	}
+})()

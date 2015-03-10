@@ -11,9 +11,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title><g:layoutTitle default="Organizador de regalos" /></title>
+<calendar:resources lang="es" theme="system" />
 <asset:stylesheet src="application.css" />
 <asset:javascript src="application.js" />
-<calendar:resources lang="es" theme="system" />
 </head>
 <body>
 	<header>
