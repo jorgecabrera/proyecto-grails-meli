@@ -11,10 +11,8 @@ import excepciones.ExcepcionDNICorto
 
 class UsuariosController {
 
-	static scope = "session"
-	def errorMessage=null
+
 	def validacionService
-	def objetoCreador=new ClaseCreadora()
 	def persistenciaService
 
 	def index(){
@@ -25,6 +23,10 @@ class UsuariosController {
 	}
 
 	def crearUsuario(){
+		
+		def errorMessage=null
+		def objetoCreador=new ClaseCreadora()
+		
 		[objetoCreador:objetoCreador,errorMessage:errorMessage]
 	}
 
@@ -44,17 +46,13 @@ class UsuariosController {
 	}
 
 	def volver(){
-		objetoCreador.nombre=""
-		objetoCreador.apellido=""
-		objetoCreador.dni=""
-		objetoCreador.urlRegalo=""
-		objetoCreador.fechaDeCumpleanios=new Date()
-		errorMessage = null
 		redirect(uri: "/")
 	}
 
 	def crear(){
 
+		def objetoCreador=new ClaseCreadora()
+		def errorMessage=null
 		def usuarioACrear
 
 		objetoCreador.nombre=params.nombre
@@ -111,15 +109,6 @@ class UsuariosController {
 			return
 		}
 
-		objetoCreador.nombre=""
-		objetoCreador.apellido=""
-		objetoCreador.dni=""
-		objetoCreador.urlRegalo=""
-		objetoCreador.urlImagen=""
-		objetoCreador.precioRegalo=0
-		objetoCreador.fechaDeCumpleanios=new Date()
-		errorMessage = null
-
 		redirect(uri: "/")
 	}
 
@@ -132,6 +121,7 @@ class UsuariosController {
 
 	def modificar(){
 
+		def errorMessage=null
 		def unUsuario = persistenciaService.obtenerUsuarioPorID(params.id as int)
 
 		unUsuario.nombre=params.nombre
