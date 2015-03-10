@@ -10,9 +10,9 @@ class MailController {
 		def sumaTotal=0
 
 		regalosDelMes.each {sumaTotal+=it.getPrecioRegalo()}
-
+		def para = grailsApplication.config.cuenta.user
 		sendMail {
-			to "pablogallazzi@gmail.com"
+			to para
 			subject "Monto total mensual"
 			body "el monto total es de: " + sumaTotal
 		}

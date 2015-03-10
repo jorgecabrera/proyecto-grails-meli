@@ -127,3 +127,7 @@ grails {
 			   "mail.smtp.socketFactory.fallback":"false"]
  
  } }
+
+cuenta{
+	user="pablogallazzi@gmail.com"
+}
