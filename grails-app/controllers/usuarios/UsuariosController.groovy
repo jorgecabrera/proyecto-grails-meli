@@ -31,7 +31,8 @@ class UsuariosController {
 	}
 
 	def verUsuarios(){
-		[usuarios:Usuario.list()]
+		println "hola"
+		[usuarios:persistenciaService.obtenerTodosLosUsuarios()]
 	}
 
 	def mostrarUsuario(int id) {

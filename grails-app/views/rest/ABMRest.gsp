@@ -25,34 +25,25 @@
 	<div align="center">
 		<div id="nolepongaslaputamadre" class="alert alert-danger"></div>
 	</div>
+	<div align="center">
+		<form id="formCreate">
 
-	<form id="formCreate">
-		<div class="form-group">
-			<label>Nombre</label> <input class="form-control" type="text"
-				name="nombre" id="txtnombre" />
-		</div>
-		<div class="form-group">
-			<label>Apellido</label> <input class="form-control" type="text"
-				name="apellido" id="txtapellido" />
-		</div>
-		<div class="form-group">
-			<label>Nacimiento</label> <input class="form-control" type="text"
-				name="nacimiento" id="txtnacimiento" />
-		</div>
-		<div class="form-group">
-			<label>DNI</label> <input class="form-control" type="text" name="dni"
-				id="txtdni" />
-		</div>
-		<div align="center">
-			<input type="hidden" name="id" id="txtidEmpleado" />
-			<button type="button" class="btn btn-primary" id="btnCrearModificar">Crear
-				empleado</button>
-			<button type="button" class="btn btn-primary" id="btnCancelar">Cancelar</button>
-		</div>
-
-	</form>
+			<input class="textox" placeholder="Nombre" type="text" name="nombre"
+				id="txtnombre"><br> <br> <input class="textox"
+				placeholder="Apellido" type="text" name="apellido" id="txtapellido"><br>
+			<br> <input class="textox" placeholder="Fecha de nacimiento"
+				type="text" name="nacimiento" id="txtnacimiento"><br> <br>
+			<input maxLength=8 class="textox" placeholder="DNI" type="text"
+				name="dni" id="txtdni"><br> <br>
+			<div align="center">
+				<input type="hidden" name="id" id="txtidEmpleado" />
+				<button type="button" class="btn" id="btnCrearModificar">Crear
+					empleado</button>
+				<button type="button" class="btn" id="btnCancelar">Cancelar</button>
+			</div>
+		</form>
+	</div>
 	<br>
-
 	<script type="text/template" id="rowTemplate">
 		<tr id="row#id">
 			<td>#nombre</td>

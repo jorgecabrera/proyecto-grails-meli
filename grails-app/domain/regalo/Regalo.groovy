@@ -3,7 +3,7 @@ package regalo
 import usuario.Usuario
 import grails.rest.Resource
 
-@Resource(uri= "/regalos")
+
 class Regalo {
 
 	String urlRegalo
