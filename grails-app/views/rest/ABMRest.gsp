@@ -23,8 +23,7 @@
 		</table>
 	</div>
 	<div align="center">
-		<div id="nolepongaslaputamadre" class="alert alert-danger">
-	</div>
+		<div id="nolepongaslaputamadre" class="alert alert-danger"></div>
 	</div>
 
 	<form id="formCreate">
@@ -130,6 +129,12 @@
 				agregar_empleado_tabla(0, empleado);
 				limpiar_formulario();
 			});
+			promise.fail(function(error) {
+				var alfa = error.responseText
+				$("#nolepongaslaputamadre").html(alfa)
+				$("#nolepongaslaputamadre").show()
+
+			});
 		}
 
 		function recuperar_empleado(idEmpleado) {
@@ -167,10 +172,10 @@
 			});
 
 			promise.fail(function(error) {
-				var alfa=error.responseText
+				var alfa = error.responseText
 				$("#nolepongaslaputamadre").html(alfa)
 				$("#nolepongaslaputamadre").show()
-				console.log(arguments)
+
 			});
 		}
 

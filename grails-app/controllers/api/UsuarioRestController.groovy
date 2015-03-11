@@ -8,6 +8,7 @@ import excepciones.ExcepcionVacio
 import excepciones.ExcepcionSoloNumeros
 import excepciones.ExcepcionYaExisteElUsuario
 import excepciones.ExcepcionDNICorto
+import java.text.ParseException;
 
 class UsuarioRestController {
 
@@ -19,11 +20,10 @@ class UsuarioRestController {
 	}
 
 	def delete(int id){
-		
+
 		persistenciaService.eliminarUsuarioPorID(id)
-		
+
 		render("oki")
-		
 	}
 
 	def update(int id){
@@ -40,7 +40,7 @@ class UsuarioRestController {
 		}
 		catch(ExcepcionVacio e){
 			errorMessage = "Ninguno de los campos puede estar vacio"
-			render status:500, errorMessage
+			render (status:500, errorMessage)
 			return
 		}
 		catch(ExcepcionSoloLetras e){
@@ -50,16 +50,23 @@ class UsuarioRestController {
 		}
 		catch(ExcepcionSoloNumeros e){
 			errorMessage = "El campo DNI solo puede tener números"
-			render status:500, errorMessage
+			render (status:500, text:errorMessage)
 			return
 		}
 		catch(ExcepcionDNICorto e){
 			errorMessage = "El DNI ingresado es demasiado corto, verifiquelo"
-			render status:500, errorMessage
+			render (status:500,text:errorMessage)
 			return
 		}
 
-		unUsuario.fechaDeCumpleanios= new Date().parse("yyyy-MM-dd",json.fechaDeCumpleanios)
+		try{
+			unUsuario.fechaDeCumpleanios= new Date().parse("yyyy-MM-dd",json.fechaDeCumpleanios)
+		}
+		catch(ParseException e){
+			errorMessage = "La fecha debe tener el formato AAAA-MM-DD"
+			render (status:500,text:errorMessage)
+			return
+		}
 
 		persistenciaService.guardarModificado(unUsuario)
 		render unUsuario as JSON
@@ -67,52 +74,47 @@ class UsuarioRestController {
 	}
 
 	def save(){
-		
-		
+
+
 		def objetoCreador=new ClaseCreadora()
 		def errorMessage=null
 		def usuarioACrear
 
-		objetoCreador.nombre=params.nombre
-		objetoCreador.apellido=params.apellido
-		objetoCreador.dni=params.dni
-		objetoCreador.urlRegalo=params.regalo
-		objetoCreador.urlImagen=params.urlImagen
-		objetoCreador.precioRegalo=params.precioRegalo as float
+		def json=request.JSON
 
-		def un= params.fechaDeCumpleanios_year
-		if (params.fechaDeCumpleanios_month.length()==1)
-			un=un+"-0"+params.fechaDeCumpleanios_month
-		else
-			un=un+"-"+params.fechaDeCumpleanios_month
-		if (params.fechaDeCumpleanios_day.length()==1)
-			un=un+"-0"+params.fechaDeCumpleanios_day
-		else
-			un=un+"-"+params.fechaDeCumpleanios_day
+		objetoCreador.nombre=json.nombre
+		objetoCreador.apellido=json.apellido
+		objetoCreador.dni=json.dni
 
-		objetoCreador.fechaDeCumpleanios= new Date().parse("yyyy-MM-dd",un)
-
+		try{
+			objetoCreador.fechaDeCumpleanios= new Date().parse("yyyy-MM-dd",json.fechaDeCumpleanios)
+		}
+		catch(ParseException e){
+			errorMessage = "La fecha debe tener el formato AAAA-MM-DD"
+			render (status:500,text:errorMessage)
+			return
+		}
 		try {
 			validacionService.validarCreacionDelUsuario(objetoCreador)
 		}
 		catch(ExcepcionVacio e){
 			errorMessage = "Ninguno de los campos puede estar vacio"
-			render (view: "/usuarios/crearUsuario", model: [objetoCreador:objetoCreador,errorMessage:errorMessage])
+			render (status:500,text:errorMessage)
 			return
 		}
 		catch(ExcepcionSoloLetras e){
 			errorMessage = "Los campos nombre y apellido solo pueden contener letras"
-			render (view: "/usuarios/crearUsuario", model: [objetoCreador:objetoCreador,errorMessage:errorMessage])
+			render (status:500,text:errorMessage)
 			return
 		}
 		catch(ExcepcionSoloNumeros e){
 			errorMessage = "El campo DNI solo puede tener numeros"
-			render (view: "/usuarios/crearUsuario", model: [objetoCreador:objetoCreador,errorMessage:errorMessage])
+			render (status:500,text:errorMessage)
 			return
 		}
 		catch(ExcepcionDNICorto e){
 			errorMessage = "El DNI ingresado es demasiado corto, verifiquelo"
-			render (view: "/usuarios/crearUsuario", model: [objetoCreador:objetoCreador,errorMessage:errorMessage])
+			render (status:500,text:errorMessage)
 			return
 		}
 
@@ -123,14 +125,12 @@ class UsuarioRestController {
 		}
 		catch(ExcepcionYaExisteElUsuario e){
 			errorMessage = "El usuario ya existe"
-			render (view: "/usuarios/crearUsuario", model: [objetoCreador:objetoCreador,errorMessage:errorMessage])
+			render (status:500,text:errorMessage)
 			return
 		}
-		
-		
-		
-		
-		
+
+
+		render(usuarioACrear as JSON)
 	}
 
 	def edit(int id){
