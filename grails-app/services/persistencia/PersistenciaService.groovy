@@ -22,6 +22,11 @@ class PersistenciaService {
 	def obtenerUsuarioPorID(int id){
 		Usuario unaPersona = Usuario.get(id)
 	}
+	
+	def eliminarUsuarioPorID(int id){
+		def unUsuario = obtenerUsuarioPorID(id)
+		unUsuario.delete(flush:true)
+	}
 
 	def guardarModificado(Usuario unUsuario){
 		unUsuario.save(flush:true)
@@ -38,5 +43,9 @@ class PersistenciaService {
 	def obtenerRegalosDelMes(){
 		def fecha=new Date()
 		def regalos=Regalo.getAll().findAll{it.fechaRegalado.getYear()==fecha.getYear()&&it.fechaRegalado.getMonth()==fecha.getMonth()}
+	}
+	
+	def obtenerTodosLosUsuarios(){
+		Usuario.list()
 	}
 }

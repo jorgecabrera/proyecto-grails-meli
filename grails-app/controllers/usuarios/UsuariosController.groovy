@@ -120,8 +120,7 @@ class UsuariosController {
 	}
 
 	def eliminar(){
-		def unUsuario = persistenciaService.obtenerUsuarioPorID(params.id as int)
-		unUsuario.delete(flush:true)
+		persistenciaService.eliminarUsuarioPorID(params.id as int)
 		redirect(action: "verUsuarios")
 	}
 
