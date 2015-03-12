@@ -31,7 +31,6 @@ class UsuariosController {
 	}
 
 	def verUsuarios(){
-		println "hola"
 		[usuarios:persistenciaService.obtenerTodosLosUsuarios()]
 	}
 
@@ -173,7 +172,6 @@ class UsuariosController {
 		}
 
 		if(unUsuario.fechaDeCumpleanios.compareTo(new Date().parse("yyyy-MM-dd",un))){
-			println"son distintas"
 			unUsuario.fechaDeCumpleanios= new Date().parse("yyyy-MM-dd",un)
 			unUsuario.getRegaloActual().definirFechaRegalo(unUsuario.getFechaDeCumpleanios())
 		}
