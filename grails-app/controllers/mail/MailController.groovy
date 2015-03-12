@@ -6,7 +6,6 @@ class MailController {
 
 	def mail() {
 
-
 		def regalosDelMes=persistenciaService.obtenerRegalosDelMes()
 		def sumaTotal=0
 		regalosDelMes.each{it.actualizarPrecio();persistenciaService.actualizarRegalo(it)}
