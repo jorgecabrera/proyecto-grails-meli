@@ -11,6 +11,7 @@ class ClaseCreadora {
 	String urlRegalo
 	String urlImagen
 	float precioRegalo
+	String idRegalo
 	
 	def ClaseCreadora(){
 		this.nombre=""
@@ -20,11 +21,11 @@ class ClaseCreadora {
 		this.urlRegalo=""
 		this.urlImagen=""
 		this.precioRegalo=0;
-		
+		this.idRegalo="";
 	}
 	
 	def crearUsuario(){
-		new Usuario(nombre,apellido,fechaDeCumpleanios,dni,urlRegalo,urlImagen,precioRegalo)
+		new Usuario(nombre,apellido,fechaDeCumpleanios,dni,urlRegalo,urlImagen,precioRegalo,idRegalo)
 	}
 
 }

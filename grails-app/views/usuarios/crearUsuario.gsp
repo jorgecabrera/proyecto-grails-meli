@@ -7,10 +7,11 @@
 </head>
 <body>
 	<script type="text/template" id="stringFilaTabla" class="noVisible">
-		<tr onclick="escribirUrl('permalink$','thumbnail$','precio$')">
+		<tr onclick="escribirUrl('permalink$','thumbnail$','precio$','regaloIdent$')">
 			<td><img src='thumbnail$' height='42' width='42'></td>
 			<td>titulo$</td>
 			<td>precio$</td>
+			<td>regaloIdent$</td>
 		</tr>
 	</script>
 	<br>
@@ -32,8 +33,8 @@
 			<input class="textox" placeholder="Nombre" type="text" name="nombre"
 				value="${objetoCreador.nombre}"><br> <br> <input
 				class="textox" placeholder="Apellido" type="text" name="apellido"
-				value="${objetoCreador.apellido}"><br> <br> <input maxLength=8
-				class="textox" placeholder="DNI" type="text" name="dni"
+				value="${objetoCreador.apellido}"><br> <br> <input
+				maxLength=8 class="textox" placeholder="DNI" type="text" name="dni"
 				value="${objetoCreador.dni}"><br> <br> <label
 				for="fechaDeCumpleanios"> <g:message
 					code="usuario.fechaDeCumpleanios.label"

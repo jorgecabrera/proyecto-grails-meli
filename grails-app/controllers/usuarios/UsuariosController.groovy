@@ -61,6 +61,7 @@ class UsuariosController {
 		objetoCreador.urlRegalo=params.regalo
 		objetoCreador.urlImagen=params.urlImagen
 		objetoCreador.precioRegalo=params.precioRegalo as float
+		objetoCreador.idRegalo=params.idRegalo
 
 		def un= params.fechaDeCumpleanios_year
 		if (params.fechaDeCumpleanios_month.length()==1)
@@ -146,6 +147,7 @@ class UsuariosController {
 		unUsuario.regaloActual.urlRegalo=params.regalo
 		unUsuario.regaloActual.urlImagen=params.urlImagen
 		unUsuario.regaloActual.precioRegalo=params.precioRegalo as float
+		unUsuario.regaloActual.idRegalo=params.idRegalo
 
 		try {
 			validacionService.validarCreacionDelUsuario(unUsuario)

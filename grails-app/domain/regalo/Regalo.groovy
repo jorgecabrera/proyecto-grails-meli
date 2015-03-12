@@ -12,11 +12,13 @@ class Regalo {
 	float precioRegalo
 	static belongsTo = [usuario:Usuario]
 	Boolean regalado
+	String idRegalo
 
 	static constraints = {
+		idRegalo nullable:true
 	}
 	
-	def Regalo(Date unaFecha,String urlRegalo,String urlImagen,float precioRegalo){
+	def Regalo(Date unaFecha,String urlRegalo,String urlImagen,float precioRegalo,String idRegalo){
 		this.definirFechaRegalo(unaFecha)
 		if(urlRegalo=="")
 		this.urlRegalo="Regalo a asignar"
@@ -25,6 +27,7 @@ class Regalo {
 		this.regalado=false
 		this.urlImagen=urlImagen
 		this.precioRegalo=precioRegalo
+		this.idRegalo=idRegalo
 	}
 
 	def definirFechaRegalo(Date unaFecha2){

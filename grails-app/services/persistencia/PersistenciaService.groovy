@@ -16,7 +16,8 @@ class PersistenciaService {
 		if (unaPersona != null)
 			throw new ExcepcionYaExisteElUsuario("Ese usuario ya existe");
 		else
-			unUsuario.save(flush:true)
+			if(!unUsuario.save(flush:true))
+			println unUsuario.regaloActual.idRegalo
 	}
 
 	def obtenerUsuarioPorID(int id){

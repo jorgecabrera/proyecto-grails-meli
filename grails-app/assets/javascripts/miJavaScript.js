@@ -8,10 +8,11 @@ function callback1() {
 
 }
 
-function escribirUrl(url, urli, precio) {
+function escribirUrl(url, urli, precio, regaloIdent) {
 	$("#URLregalo").val(url);
 	$("#linkURL").attr("href", url)
 	$("#URLImagen").val(urli);
+	$("#IDRegalo").val(regaloIdent);
 	$("#precioRegalo").val(precio);
 	$("#busqueda").val("")
 	$("#respuesta_api").empty()
@@ -37,6 +38,9 @@ function buscar() {
 			str = str.replace("titulo$", item.title)
 			str = str.replace("precio$", item.price)
 			str = str.replace("precio$", item.price)
+			str = str.replace("regaloIdent$", item.id)
+			str = str.replace("regaloIdent$", item.id)
+
 			$("#respuesta_api").append(str);
 		}
 		function mostrarError() {
