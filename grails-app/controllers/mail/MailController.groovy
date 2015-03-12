@@ -6,9 +6,10 @@ class MailController {
 
 	def mail() {
 
+
 		def regalosDelMes=persistenciaService.obtenerRegalosDelMes()
 		def sumaTotal=0
-
+		regalosDelMes.each{it.actualizarPrecio();persistenciaService.actualizarRegalo(it)}
 		regalosDelMes.each {sumaTotal+=it.getPrecioRegalo()}
 		def para = grailsApplication.config.cuenta.user
 		sendMail {

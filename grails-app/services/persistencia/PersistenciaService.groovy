@@ -49,4 +49,8 @@ class PersistenciaService {
 	def obtenerTodosLosUsuarios(){
 		Usuario.list()
 	}
+	
+	def actualizarRegalo(Regalo unRegalo){
+		unRegalo.save(flush:true)		
+	}
 }
