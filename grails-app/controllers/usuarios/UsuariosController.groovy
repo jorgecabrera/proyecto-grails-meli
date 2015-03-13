@@ -8,6 +8,7 @@ import excepciones.ExcepcionVacio
 import excepciones.ExcepcionSoloNumeros
 import excepciones.ExcepcionYaExisteElUsuario
 import excepciones.ExcepcionDNICorto
+import grails.plugin.springsecurity.annotation.*
 
 class UsuariosController {
 
@@ -15,6 +16,7 @@ class UsuariosController {
 	def validacionService
 	def persistenciaService
 
+	@Secured(["premitAll"])
 	def index(){
 
 		def regalosDeHoy=persistenciaService.obtenerRegalosHoy()
