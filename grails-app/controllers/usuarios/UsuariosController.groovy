@@ -8,9 +8,10 @@ import excepciones.ExcepcionVacio
 import excepciones.ExcepcionSoloNumeros
 import excepciones.ExcepcionYaExisteElUsuario
 import excepciones.ExcepcionDNICorto
+import grails.plugin.springsecurity.annotation.Secured
 
+@Secured(['ROLE_ADMIN'])
 class UsuariosController {
-
 
 	def validacionService
 	def persistenciaService

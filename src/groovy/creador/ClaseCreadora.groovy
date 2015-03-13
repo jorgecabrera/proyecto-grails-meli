@@ -1,6 +1,6 @@
 package creador
 
-import usuario.Usuario
+import usuario.Empleado
 
 class ClaseCreadora {
 	
@@ -18,14 +18,14 @@ class ClaseCreadora {
 		this.apellido=""
 		this.dni=""
 		this.fechaDeCumpleanios=new Date()
-		this.urlRegalo=""
+		this.urlRegalo=
 		this.urlImagen=""
 		this.precioRegalo=0;
 		this.idRegalo="";
 	}
 	
 	def crearUsuario(){
-		new Usuario(nombre,apellido,fechaDeCumpleanios,dni,urlRegalo,urlImagen,precioRegalo,idRegalo)
+		new Empleado(nombre,apellido,fechaDeCumpleanios,dni,urlRegalo,urlImagen,precioRegalo,idRegalo)
 	}
 
 }
