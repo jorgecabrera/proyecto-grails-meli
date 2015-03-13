@@ -64,6 +64,7 @@ grails.project.dependency.resolution = {
 		compile ":twitter-bootstrap:3.2.0"
 		compile ":calendar:1.2.1"
 		compile ":mail:1.0.7"
+        compile ":spring-security-core:2.0-RC4"
 
         // plugins needed at runtime but not for compilation
         runtime ":hibernate4:4.3.6.1" // or ":hibernate:3.6.10.18"
