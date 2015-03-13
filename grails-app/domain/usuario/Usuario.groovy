@@ -5,13 +5,15 @@ import grails.rest.Resource
 
 
 class Usuario {
-	
+	transient springSecurityService
+
 	String nombre
 	String apellido
 	String dni
 	Date fechaDeCumpleanios
 	Regalo regaloActual
 	static hasMany = [historialDeRegalos:Regalo]
+	static transients = ['springSecurityService']
 	
     static constraints = {
 		regaloActual nullable:true
