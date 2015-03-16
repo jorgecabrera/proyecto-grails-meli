@@ -1,5 +1,5 @@
 package usuario
-
+import empresa.*
 class User {
 
 	transient springSecurityService
