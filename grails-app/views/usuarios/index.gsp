@@ -23,7 +23,7 @@
 			<sec:ifLoggedIn>
          Logged in as <sec:username /> (<g:link controller='logout'>Logout</g:link>)
       </sec:ifLoggedIn> <sec:ifNotLoggedIn>
-				<a href='http://localhost:8080/proyecto-grails-meli/login/auth'>Login</a>
+				<a href="${createLink(controller:'login',action: 'index')}">Login</a>
 			</sec:ifNotLoggedIn>
 		</span>
 	</div>
