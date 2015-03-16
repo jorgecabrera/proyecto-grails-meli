@@ -20,7 +20,7 @@ class UrlMappings {
 		
 
         "/"(controller:'usuarios',action:'index')
-        "/$empresa"(controller:'empresa',action:'index')
+        "/cumples-de-hoy/$empresa"(controller:'empresa',action:'index')
         "500"(view:'/error')
 	}
 }
