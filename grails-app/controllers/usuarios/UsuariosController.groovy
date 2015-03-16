@@ -10,13 +10,14 @@ import excepciones.ExcepcionYaExisteElUsuario
 import excepciones.ExcepcionDNICorto
 import grails.plugin.springsecurity.annotation.*
 
+@Secured(['ROLE_ADMIN'])
 class UsuariosController {
 
 
 	def validacionService
 	def persistenciaService
 
-	@Secured(["premitAll"])
+	@Secured(["permitAll"])
 	def index(){
 
 		def regalosDeHoy=persistenciaService.obtenerRegalosHoy()
