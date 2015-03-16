@@ -19,10 +19,10 @@
 					<g:each in="${administradores}" var="unAdministrador">
 						<tr>
 							<td >
-								${unAdministrador.nombre}
+								${unAdministrador.username}
 							</td>
 							<td>
-								${unAdministrador.nombre}
+								${unAdministrador.password}
 							</td>
 						</tr>
 					</g:each>
