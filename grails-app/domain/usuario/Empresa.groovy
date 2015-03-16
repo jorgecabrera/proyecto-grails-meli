@@ -1,2 +1,0 @@
-def usuarios
-def admins
