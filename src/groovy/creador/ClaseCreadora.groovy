@@ -1,6 +1,6 @@
 package creador
 
-import usuario.Empleado
+import usuario.Usuario
 
 class ClaseCreadora {
 	
@@ -25,7 +25,7 @@ class ClaseCreadora {
 	}
 	
 	def crearUsuario(){
-		new Empleado(nombre,apellido,fechaDeCumpleanios,dni,urlRegalo,urlImagen,precioRegalo,idRegalo)
+		new Usuario(nombre,apellido,fechaDeCumpleanios,dni,urlRegalo,urlImagen,precioRegalo,idRegalo)
 	}
 
 }
