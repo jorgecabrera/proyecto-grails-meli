@@ -22,6 +22,7 @@ grails.mime.types = [ // the first one is the default format
     csv:           'text/csv',
     form:          'application/x-www-form-urlencoded',
     html:          ['text/html','application/xhtml+xml'],
+	
     js:            'text/javascript',
     json:          ['application/json', 'text/json'],
     multipartForm: 'multipart/form-data',
