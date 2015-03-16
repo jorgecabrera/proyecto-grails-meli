@@ -1,5 +1,7 @@
 package usuario
 
+import empresa.*
+
 class User {
 
 	transient springSecurityService
@@ -11,7 +13,7 @@ class User {
 	boolean accountLocked
 	boolean passwordExpired
 
-	static belongsTo = [empresa:Empresa]
+	static belongsTo = [empresa: Empresa]
 	static transients = ['springSecurityService']
 
 	static constraints = {

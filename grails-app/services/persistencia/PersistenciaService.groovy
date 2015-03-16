@@ -53,4 +53,8 @@ class PersistenciaService {
 	def actualizarRegalo(Regalo unRegalo){
 		unRegalo.save(flush:true)		
 	}
+
+	def obtenerUsuariosPorEmpresa(idEmpresa){
+		def usuarios = Usuario.findAllByEmpresa(idEmpresa)
+	}
 }

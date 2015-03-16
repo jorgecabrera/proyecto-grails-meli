@@ -1,6 +1,7 @@
 package usuario
 
 import regalo.Regalo
+import empresa.*
 
 class Usuario {
 
@@ -11,6 +12,8 @@ class Usuario {
 	Regalo regaloActual
 
 	def historialDeRegalos
+
+	static belongsTo = [empresa: Empresa]
 
 	def Usuario(String unNombre,String unApellido, Date unaFechaDeCumpleanios,String unDni,String urlRegalo,String urlImagen,float precioRegalo,String idRegalo){
 		nombre=unNombre
