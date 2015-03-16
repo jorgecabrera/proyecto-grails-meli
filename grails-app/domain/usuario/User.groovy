@@ -1,5 +1,4 @@
 package usuario
-
 import empresa.*
 
 class User {
