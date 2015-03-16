@@ -135,8 +135,8 @@ cuenta{
 }
 
 // Added by the Spring Security Core plugin:
-grails.plugin.springsecurity.userLookup.userDomainClassName = 'usuario.Usuario'
-grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'usuario.UsuarioRole'
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'usuario.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'usuario.UserRole'
 grails.plugin.springsecurity.authority.className = 'usuario.Role'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':                              ['permitAll'],
