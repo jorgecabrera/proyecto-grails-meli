@@ -28,4 +28,9 @@ class AdministradorController {
 		UserRole.create administradorNuevo, adminRole, true;
 		redirect(uri: "/")
 	}
+	
+	@Secured(["permitAll"])
+	def volver(){
+		redirect(uri:"/administrador");
+	}
 }

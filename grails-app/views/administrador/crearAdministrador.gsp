@@ -26,7 +26,7 @@
 				name="nombre" id="username"><br><br><input class="textox"
 				placeholder="password" type="text" name="password"><br>
 			<br>
-			<g:actionSubmit class="btn" onClick="return validar()"
+			<g:actionSubmit class="btn" onClick="return validar() "
 				value="Crear"/>
 			<g:actionSubmit class="btn" controller="administrador"
 				action="volver" value="Volver"/>
