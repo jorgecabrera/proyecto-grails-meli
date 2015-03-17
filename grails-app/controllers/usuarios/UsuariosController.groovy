@@ -24,6 +24,7 @@ class UsuariosController {
 		[regalosDeHoy:regalosDeHoy]
 	}
 
+	@Secured(["permitAll"])
 	def crearUsuario(){
 
 		def errorMessage=null
@@ -32,25 +33,28 @@ class UsuariosController {
 		[objetoCreador:objetoCreador,errorMessage:errorMessage]
 	}
 
+	@Secured(["permitAll"])
 	def verUsuarios(){
 		[usuarios:persistenciaService.obtenerTodosLosUsuarios()]
 	}
 
+	@Secured(["permitAll"])
 	def mostrarUsuario(int id) {
-
 		def unUsuario = persistenciaService.obtenerUsuarioPorID(id)
-
 		[unUsuario:unUsuario]
 	}
 
+	@Secured(["permitAll"])
 	def ok() {
 		redirect(action: "verUsuarios")
 	}
 
+	@Secured(["permitAll"])
 	def volver(){
 		redirect(uri: "/")
 	}
 
+	@Secured(["permitAll"])
 	def crear(){
 
 		def objetoCreador=new ClaseCreadora()
@@ -115,6 +119,7 @@ class UsuariosController {
 		redirect(uri: "/")
 	}
 
+	@Secured(["permitAll"])
 	def editarUsuario(){
 
 		def unUsuario = persistenciaService.obtenerUsuarioPorID(params.id as int)
@@ -122,11 +127,13 @@ class UsuariosController {
 		[unUsuario:unUsuario]
 	}
 
+	@Secured(["permitAll"])
 	def eliminar(){
 		persistenciaService.eliminarUsuarioPorID(params.id as int)
 		redirect(action: "verUsuarios")
 	}
 
+	@Secured(["permitAll"])
 	def modificar(){
 
 		def errorMessage=null
@@ -193,6 +200,7 @@ class UsuariosController {
 		redirect(action: "verUsuarios")
 	}
 
+	@Secured(["permitAll"])
 	def regalar(int id){
 
 		def unRegalo = persistenciaService.obtenerRegaloPorID(id)
@@ -200,6 +208,7 @@ class UsuariosController {
 		[unRegalo:unRegalo]
 	}
 
+	@Secured(["permitAll"])
 	def confirmarRegalo(){
 
 		def unUsuario = persistenciaService.obtenerUsuarioPorID(params.id as int)

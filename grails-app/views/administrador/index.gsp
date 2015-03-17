@@ -18,9 +18,9 @@
 				<tbody>
 					<g:each in="${administradores}" var="unAdministrador">
 						<tr>
-							<td >
-								${unAdministrador.username}
-							</td>
+							<td><a
+								href="${createLink(action:'mostrarAdministrador',controller:'administrador',id:unAdministrador.id)}">
+								${unAdministrador.username}</a></td>
 							<td>
 								${unAdministrador.username}
 							</td>
@@ -43,5 +43,10 @@
 		</div>
 	</g:form>
 	<br>
+	<script>
+		function editarUsuario(id){
+			window.location = "/proyecto-grails-meli/administrador/mostrarUsuario/"+id
+		}	
+	</script>
 </body>
 </html>

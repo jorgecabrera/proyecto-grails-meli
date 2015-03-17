@@ -33,4 +33,10 @@ class AdministradorController {
 	def volver(){
 		redirect(uri:"/administrador");
 	}
+
+	@Secured(["permitAll"])
+	def mostrarAdministrador(int id) {
+		def unAdmin = persistenciaAdminService.obtenerAdminPorID(id);
+		[unAdmin:unAdmin]
+	}
 }

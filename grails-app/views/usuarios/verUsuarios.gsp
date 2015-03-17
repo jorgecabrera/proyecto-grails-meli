@@ -8,7 +8,7 @@
 	<script>
 function editarUsuario(id){
 	window.location = "/proyecto-grails-meli/usuarios/mostrarUsuario/"+id
-}
+}	
 </script>
 	<br>
 	<div align="center">
