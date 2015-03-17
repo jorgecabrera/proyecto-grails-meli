@@ -58,6 +58,7 @@
 	</g:else>
 	<div align="center">
 		<a class="btn" href="${createLink(action: 'crearEmpresa', controller: 'empresa')}">Crear Empresa</a>
+		<a class="btn" href="${createLink(action: 'verEmpresas', controller: 'empresa')}">Ver Empresas</a>
 		<a class="btn" href="${createLink(action: 'crearUsuario', controller: 'usuarios')}">Crear Usuario</a>
 		<a class="btn" href="${createLink(action: 'verUsuarios', controller: 'usuarios')}">Ver Usuarios</a>
 	</div>

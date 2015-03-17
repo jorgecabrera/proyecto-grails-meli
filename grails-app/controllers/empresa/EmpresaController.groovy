@@ -87,9 +87,9 @@ class EmpresaController {
 		redirect(uri: "/")
 	}
 
-	def editarEmpresa(){
+	def editarEmpresa(int id){
 
-		def unaEmpresa = persistenciaEmpresaService.obtenerEmpresaPorID(params.id as int)
+		def unaEmpresa = persistenciaEmpresaService.obtenerEmpresaPorID(id)
 
 		[unaEmpresa:unaEmpresa]
 	}
@@ -104,8 +104,12 @@ class EmpresaController {
 		def errorMessage=null
 		def unaEmpresa = persistenciaEmpresaService.obtenerEmpresaPorID(params.id as int)
 
+		println unaEmpresa
+
 		unaEmpresa.nombre=params.nombre
 		unaEmpresa.cuit=params.cuit
+
+		println unaEmpresa		
 
 		try {
 			validacionService.validarCreacionDeLaEmpresa(objetoCreador)

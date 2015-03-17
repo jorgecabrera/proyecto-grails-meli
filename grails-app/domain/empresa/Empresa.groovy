@@ -10,10 +10,4 @@ class Empresa {
     
     static constraints = {
     }
-    public Empresa(){
-    	cuit=""
-    	nombre=""
-    	empleados=[]
-    	administradores=[]
-    }
 }

@@ -6,18 +6,9 @@
 
 </head>
 <body>
-	<script type="text/template" id="stringFilaTabla" class="noVisible">
-		<tr onclick="escribirUrl('permalink$','thumbnail$','precio$','regaloIdent$')">
-			<td><img src='thumbnail$' height='42' width='42'></td>
-			<td>titulo$</td>
-			<td>precio$</td>
-			<td>regaloIdent$</td>
-		</tr>
-	</script>
-	<br>
 	<div align="center">
 		<h3>
-			<g:message code="Crear usuario" />
+			<g:message code="Crear Empresa" />
 		</h3>
 	</div>
 	<br>
