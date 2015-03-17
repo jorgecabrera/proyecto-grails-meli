@@ -2,8 +2,13 @@ package empresa
 
 import excepciones.*
 import creador.ClaseCreadoraEmpresa
+import grails.plugin.springsecurity.annotation.*
 
+@Secured(['permitAll'])
 class EmpresaController {
+
+	def validacionService
+	def persistenciaEmpresaService
 
     def index() {
     	[empresas:Empresa.list()]
@@ -13,8 +18,8 @@ class EmpresaController {
 
     }
 
+    @Secured(['ROLE_ADMIN'])
 	def crearEmpresa(){
-		
 		def errorMessage=null
 		def objetoCreador=new ClaseCreadoraEmpresa()
 

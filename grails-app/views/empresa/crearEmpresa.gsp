@@ -30,22 +30,12 @@
 	</g:if>
 	<form>
 		<div align="center">
-			<input class="textox" placeholder="Nombre" type="text" name="nombre" value="${objetoCreador.nombre}"><br><br>
-			<input class="textox" placeholder="Apellido" type="text" name="apellido" value="${objetoCreador.apellido}"><br><br>
-			<input maxLength=8 class="textox" placeholder="DNI" type="text" name="dni" value="${objetoCreador.dni}"><br><br>
-			<label for="fechaDeCumpleanios"> 
-			<g:message code="usuario.fechaDeCumpleanios.label" default="Fecha de nacimiento" /></label>
-			
-			<calendar:datePicker years="1900-2050" dateFormat="%d/%m/%Y" name="fechaDeCumpleanios" value="${objetoCreador.fechaDeCumpleanios}" />
-			<br>
-			<g:render template="templateBusqueda"
-				model="['objetoCreador':objetoCreador]" />
-			
-			<g:select id="empresas.id" name="idEmpresa" from="${empresas}" optionKey="id" optionValue="nombre"/><br><br>
+			<input class="textox" placeholder="Empresa" type="text" name="nombre" value="${objetoCreador.nombre}"><br><br>
+			<input class="textox" placeholder="Cuit" type="text" name="cuit" maxLength="11" minLength="11" value="${objetoCreador.cuit}"><br><br>
 
-			<g:actionSubmit class="btn" controller="usuarios" action="crear"
+			<g:actionSubmit class="btn" controller="empresa" action="crear"
 				value="Crear" />
-			<g:actionSubmit class="btn" controller="usuarios" action="volver"
+			<g:actionSubmit class="btn" controller="empresa" action="volver"
 				value="Volver" />
 		</div>
 	</form>

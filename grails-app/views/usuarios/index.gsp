@@ -57,9 +57,9 @@
 		</div>
 	</g:else>
 	<div align="center">
-		<input type="button" class="btn" onClick="${createLink(action: 'crearEmpresa', controller: 'empresa')}" value="Crear Empresa" />
-		<input type="button" class="btn" onClick="${createLink(action: 'crearUsuario', controller: 'usuarios')}" value="Crear Usuario" />
-		<input type="button" class="btn" onClick="${createLink(action: 'verUsuarios', controller: 'usuarios')}" value="Ver Usuarios" />
+		<a class="btn" href="${createLink(action: 'crearEmpresa', controller: 'empresa')}">Crear Empresa</a>
+		<a class="btn" href="${createLink(action: 'crearUsuario', controller: 'usuarios')}">Crear Usuario</a>
+		<a class="btn" href="${createLink(action: 'verUsuarios', controller: 'usuarios')}">Ver Usuarios</a>
 	</div>
 	<br>
 </body>

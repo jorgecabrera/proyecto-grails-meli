@@ -40,13 +40,13 @@ class ValidacionService {
 	}
 
 	def validarCuit(def cuit){
-		if(cuit=~/^\d+$/)
+		if(!cuit=~/^\d+$/)
 			throw new ExcepcionSoloNumeros("Solo puede haber numeros en el cuit")
 		if(cuit.length() != 11)
 			throw new ExcepcionDNICorto("El Cuit ingresado es muy corto, verifiquelo")
 	}
 
-	def validarEmpresa(def empresa){
+	def validarCreacionDeLaEmpresa(def empresa){
 		this.validarCamposVaciosEmpresa(empresa)
 		this.validarCuit(empresa.cuit)
 	}

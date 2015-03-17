@@ -12,7 +12,7 @@ class PersistenciaEmpresaService {
 
 	def persistir(Empresa unaEmpresa){
 		Empresa empresa=null
-		empresa= Empresa.findByDni(unEmpresa.dni)
+		empresa= Empresa.findByCuit(unaEmpresa.cuit)
 		if (empresa != null)
 			throw new ExcepcionYaExisteLaEmpresa("Esta empresa ya existe");
 		else
