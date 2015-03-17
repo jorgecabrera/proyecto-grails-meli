@@ -18,7 +18,7 @@ class EmpresaController {
 
     }
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_SUPERADMIN'])
 	def crearEmpresa(){
 		def errorMessage=null
 		def objetoCreador=new ClaseCreadoraEmpresa()
@@ -45,6 +45,8 @@ class EmpresaController {
 		redirect(uri: "/")
 	}
 
+
+	@Secured(['ROLE_SUPERADMIN'])
 	def crear(){
 
 		def objetoCreador=new ClaseCreadoraEmpresa()
@@ -87,6 +89,7 @@ class EmpresaController {
 		redirect(uri: "/")
 	}
 
+	@Secured(['ROLE_SUPERADMIN'])
 	def editarEmpresa(int id){
 
 		def unaEmpresa = persistenciaEmpresaService.obtenerEmpresaPorID(id)
@@ -94,11 +97,15 @@ class EmpresaController {
 		[unaEmpresa:unaEmpresa]
 	}
 
+
+	@Secured(['ROLE_SUPERADMIN'])
 	def eliminar(){
 		persistenciaEmpresaService.eliminarEmpresaPorID(params.id as int)
 		redirect(action: "verEmpresas")
 	}
 
+
+	@Secured(['ROLE_SUPERADMIN'])
 	def modificar(){
 
 		def errorMessage=null
