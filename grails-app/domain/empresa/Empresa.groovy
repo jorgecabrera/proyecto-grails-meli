@@ -6,9 +6,8 @@ class Empresa {
 	String cuit
 	String nombre
 	
-	static hasMany = [empleados:Usuario,
-						administradores:User]
+	static hasMany = [empleados: Usuario, administradores: User]
+    
     static constraints = {
-		
     }
 }

@@ -20,6 +20,8 @@ class UrlMappings {
 		
 
         "/"(controller:'usuarios',action:'index')
+        //"/cumples-de-hoy"(controller:'empresa',action:'index')
+        //"/cumples-de-hoy/$empresa"(controller:'empresa',action:'verCumples')
         "500"(view:'/error')
 	}
 }

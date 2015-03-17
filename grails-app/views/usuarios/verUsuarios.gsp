@@ -22,25 +22,27 @@ function editarUsuario(id){
 			<table border="1">
 				<thead>
 					<tr>
+					<th>DNI</th>
 						<th>Nombre</th>
 						<th>Apellido</th>
-						<th>DNI</th>
+						
 						<th>Fecha de Nacimiento</th>
 					</tr>
 				</thead>
 				<tbody>
 					<g:each in="${usuarios}" var="unUsuario">
 
-						<tr onclick="editarUsuario(${unUsuario.id})">
+						<tr>
+							<td>
+								<a href="${createLink(action:'mostrarUsuario', controller:'usuarios', id: unUsuario.id)}">${unUsuario.dni}</a>
+							</td>
 							<td>
 								${unUsuario.nombre}
 							</td>
 							<td>
 								${unUsuario.apellido}
 							</td>
-							<td>
-								${unUsuario.dni}
-							</td>
+							
 							<td>
 								${unUsuario.fechaDeCumpleanios}
 							</td>

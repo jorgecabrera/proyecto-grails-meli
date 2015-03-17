@@ -39,7 +39,8 @@
 							asignar, edite el usuario y asignele uno!</div>
 					</div>
 				</g:else>
-				<label><g:message code="Regalos" /></label><br> <br>
+				<g:if test="${unUsuario.historialDeRegalos!=null}">
+					<label><g:message code="Regalos" /></label><br> <br>
 				<div align="center">
 					<table border="1" class="table table-condensed">
 						<thead>
@@ -70,6 +71,14 @@
 						</tbody>
 					</table>
 				</div>
+				</g:if>
+				<g:else>
+					<div class="row" align="center">
+						<div class="alert alert-info">El usuario nunca ha recibido regalos</div>
+					</div>
+				</g:else>
+				
+				
 			</div>
 			<div align="center">
 				<g:actionSubmit class="btn" controller="usuarios"

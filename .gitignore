@@ -31,7 +31,8 @@
 /target-eclipse
 
 /.settings
-
+.classpath
+.project
 *~
 .project
 .classpath

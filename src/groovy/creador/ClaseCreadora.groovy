@@ -1,6 +1,7 @@
 package creador
 
 import usuario.Usuario
+import empresa.Empresa
 
 class ClaseCreadora {
 	
@@ -18,7 +19,7 @@ class ClaseCreadora {
 		this.apellido=""
 		this.dni=""
 		this.fechaDeCumpleanios=new Date()
-		this.urlRegalo=
+		this.urlRegalo=""
 		this.urlImagen=""
 		this.precioRegalo=0;
 		this.idRegalo="";

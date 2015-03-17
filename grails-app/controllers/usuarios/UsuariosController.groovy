@@ -15,6 +15,7 @@ class UsuariosController {
 
 	def validacionService
 	def persistenciaService
+	def persistenciaEmpresaService
 
 	@Secured(["permitAll"])
 	def index(){
@@ -30,7 +31,7 @@ class UsuariosController {
 		def errorMessage=null
 		def objetoCreador=new ClaseCreadora()
 
-		[objetoCreador:objetoCreador,errorMessage:errorMessage]
+		[objetoCreador:objetoCreador,errorMessage:errorMessage,empresas: persistenciaEmpresaService.obtenerTodasLasEmpresas()]
 	}
 
 	@Secured(["permitAll"])
@@ -69,6 +70,7 @@ class UsuariosController {
 		objetoCreador.precioRegalo=params.precioRegalo as float
 		objetoCreador.idRegalo=params.idRegalo
 
+
 		def un= params.fechaDeCumpleanios_year
 		if (params.fechaDeCumpleanios_month.length()==1)
 			un=un+"-0"+params.fechaDeCumpleanios_month
@@ -106,15 +108,9 @@ class UsuariosController {
 		}
 
 		usuarioACrear=objetoCreador.crearUsuario()
-
-		try{
-			persistenciaService.persistir(usuarioACrear)
-		}
-		catch(ExcepcionYaExisteElUsuario e){
-			errorMessage = "El usuario ya existe"
-			render (view: "/usuarios/crearUsuario", model: [objetoCreador:objetoCreador,errorMessage:errorMessage])
-			return
-		}
+		println params.idEmpresa
+		
+		persistenciaService.persistir(usuarioACrear, params.idEmpresa)
 
 		redirect(uri: "/")
 	}

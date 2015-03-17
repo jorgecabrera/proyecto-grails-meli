@@ -45,6 +45,9 @@
 			<br>
 			<g:render template="templateBusqueda"
 				model="['objetoCreador':objetoCreador]" />
+			
+			<g:select id="empresas.id" name="idEmpresa" from="${empresas}" optionKey="id" optionValue="nombre"/><br><br>
+
 			<g:actionSubmit class="btn" controller="usuarios" action="crear"
 				value="Crear" />
 			<g:actionSubmit class="btn" controller="usuarios" action="volver"

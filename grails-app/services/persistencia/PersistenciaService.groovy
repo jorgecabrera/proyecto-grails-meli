@@ -1,23 +1,24 @@
 package persistencia
 
+import usuario.*
+import empresa.*
 import excepciones.ExcepcionYaExisteElUsuario
 import grails.transaction.Transactional
 import regalo.Regalo
-import usuario.Usuario
 
 @Transactional
 
 //TODO: Acá falta fijarse que las transacciones finalicen correctamente y en base a eso decidir, como está ahora puede fallar y no avisar nunca
 class PersistenciaService {
 
-	def persistir(Usuario unUsuario){
-		Usuario unaPersona=null
-		unaPersona= Usuario.findByDni(unUsuario.dni)
-		if (unaPersona != null)
-			throw new ExcepcionYaExisteElUsuario("Ese usuario ya existe");
-		else
-			if(!unUsuario.save(flush:true))
-			println unUsuario.regaloActual.idRegalo
+	def persistir(Usuario unUsuario, idEmpresa){
+		def empresa = Empresa.get(idEmpresa)
+		def u = Usuario.findByDni(unUsuario.dni)
+		if (u==null){
+			empresa.addToEmpleados(unUsuario)
+			if(!unUsuario.save(flush:true, failOnError:true))
+				println unUsuario.regaloActual.idRegalo
+		}
 	}
 
 	def obtenerUsuarioPorID(int id){
@@ -52,5 +53,9 @@ class PersistenciaService {
 	
 	def actualizarRegalo(Regalo unRegalo){
 		unRegalo.save(flush:true)		
+	}
+
+	def obtenerUsuariosPorEmpresa(idEmpresa){
+		def usuarios = Usuario.findAllByEmpresa(idEmpresa)
 	}
 }
