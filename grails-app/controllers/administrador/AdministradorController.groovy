@@ -2,21 +2,18 @@ package administrador
 import grails.plugin.springsecurity.annotation.*
 import usuario.*
 
-@Secured(["permitAll"])
+@Secured(["ROLE_SUPERADMIN"])
 class AdministradorController {
 	def persistenciaAdminService;
 	
-	@Secured(["permitAll"])
 	def index() {
 		def administradores = persistenciaAdminService.obtenerAdministradores();
 		[administradores:administradores]
 	}
 	
-	@Secured(["permitAll"])
 	def crearAdministrador(){
 	}
 	
-	@Secured(["permitAll"])
 	def crear(){
 		def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
 		def administradorNuevo = new User(username:'',password:'');
@@ -29,12 +26,10 @@ class AdministradorController {
 		redirect(uri: "/")
 	}
 	
-	@Secured(["permitAll"])
 	def volver(){
 		redirect(uri:"/administrador");
 	}
 
-	@Secured(["permitAll"])
 	def mostrarAdministrador(int id) {
 		def unAdmin = persistenciaAdminService.obtenerAdminPorID(id);
 		[unAdmin:unAdmin]

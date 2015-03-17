@@ -31,6 +31,8 @@ class BootStrap {
 		u2.save(failOnError: true, flush: true)
 
 		def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true, failOnError:true)
+		def superAdminRole = new Role(authority: 'ROLE_SUPERADMIN').save(flush: true, failOnError:true)
+		
 		def testUser = new User(username: 'admin', password: 'admin')
 		e1.addToAdministradores(testUser)
 		testUser.save(failOnError: true, flush: true)

@@ -22,11 +22,11 @@ function editarUsuario(id){
 			<table border="1">
 				<thead>
 					<tr>
-					<th>DNI</th>
+						<th>DNI</th>
 						<th>Nombre</th>
 						<th>Apellido</th>
-						
 						<th>Fecha de Nacimiento</th>
+						<th>Empresa</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -45,6 +45,9 @@ function editarUsuario(id){
 							
 							<td>
 								${unUsuario.fechaDeCumpleanios}
+							</td>
+							<td>
+								${unUsuario.empresa.nombre}
 							</td>
 						</tr>
 					</g:each>

@@ -10,14 +10,13 @@ import excepciones.ExcepcionYaExisteElUsuario
 import excepciones.ExcepcionDNICorto
 import grails.plugin.springsecurity.annotation.*
 
-@Secured(['ROLE_ADMIN'])
+@Secured(['permitAll'])
 class UsuariosController {
 
 	def validacionService
 	def persistenciaService
 	def persistenciaEmpresaService
 
-	@Secured(["permitAll"])
 	def index(){
 
 		def regalosDeHoy=persistenciaService.obtenerRegalosHoy()
@@ -25,7 +24,7 @@ class UsuariosController {
 		[regalosDeHoy:regalosDeHoy]
 	}
 
-	@Secured(["permitAll"])
+	@Secured(['ROLE_ADMIN'])
 	def crearUsuario(){
 
 		def errorMessage=null
@@ -34,28 +33,23 @@ class UsuariosController {
 		[objetoCreador:objetoCreador,errorMessage:errorMessage,empresas: persistenciaEmpresaService.obtenerTodasLasEmpresas()]
 	}
 
-	@Secured(["permitAll"])
 	def verUsuarios(){
 		[usuarios:persistenciaService.obtenerTodosLosUsuarios()]
 	}
 
-	@Secured(["permitAll"])
 	def mostrarUsuario(int id) {
 		def unUsuario = persistenciaService.obtenerUsuarioPorID(id)
 		[unUsuario:unUsuario]
 	}
 
-	@Secured(["permitAll"])
 	def ok() {
 		redirect(action: "verUsuarios")
 	}
 
-	@Secured(["permitAll"])
 	def volver(){
 		redirect(uri: "/")
 	}
 
-	@Secured(["permitAll"])
 	def crear(){
 
 		def objetoCreador=new ClaseCreadora()
@@ -115,7 +109,6 @@ class UsuariosController {
 		redirect(uri: "/")
 	}
 
-	@Secured(["permitAll"])
 	def editarUsuario(){
 
 		def unUsuario = persistenciaService.obtenerUsuarioPorID(params.id as int)
@@ -123,13 +116,11 @@ class UsuariosController {
 		[unUsuario:unUsuario]
 	}
 
-	@Secured(["permitAll"])
 	def eliminar(){
 		persistenciaService.eliminarUsuarioPorID(params.id as int)
 		redirect(action: "verUsuarios")
 	}
 
-	@Secured(["permitAll"])
 	def modificar(){
 
 		def errorMessage=null
@@ -183,20 +174,12 @@ class UsuariosController {
 			unUsuario.getRegaloActual().definirFechaRegalo(unUsuario.getFechaDeCumpleanios())
 		}
 
-		try{
-			persistenciaService.guardarModificado(unUsuario)
-		}
-		catch(ExcepcionYaExisteElUsuario e){
-			errorMessage = "El usuario ya existe"
-			render (view: "/usuarios/editarUsuario", model: [unUsuario:unUsuario,errorMessage:errorMessage])
-			return
-		}
+		persistenciaService.guardarModificado(unUsuario)
 
 		errorMessage = null
 		redirect(action: "verUsuarios")
 	}
 
-	@Secured(["permitAll"])
 	def regalar(int id){
 
 		def unRegalo = persistenciaService.obtenerRegaloPorID(id)
@@ -204,7 +187,6 @@ class UsuariosController {
 		[unRegalo:unRegalo]
 	}
 
-	@Secured(["permitAll"])
 	def confirmarRegalo(){
 
 		def unUsuario = persistenciaService.obtenerUsuarioPorID(params.id as int)

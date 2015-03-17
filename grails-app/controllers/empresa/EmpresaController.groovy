@@ -112,34 +112,25 @@ class EmpresaController {
 		println unaEmpresa		
 
 		try {
-			validacionService.validarCreacionDeLaEmpresa(objetoCreador)
+			validacionService.validarCreacionDeLaEmpresa(unaEmpresa)
 		}
 		catch(ExcepcionVacio e){
 			errorMessage = e.message
-			render (view: "/empresa/crearEmpresa", model: [objetoCreador:objetoCreador,errorMessage:errorMessage])
+			render (view: "/empresa/editarEmpresa", model: [unaEmpresa:unaEmpresa,errorMessage:errorMessage])
 			return
 		}
 		catch(ExcepcionSoloNumeros e){
 			errorMessage = e.message
-			render (view: "/empresa/crearEmpresa", model: [objetoCreador:objetoCreador,errorMessage:errorMessage])
+			render (view: "/empresa/editarEmpresa", model: [unaEmpresa:unaEmpresa,errorMessage:errorMessage])
 			return
 		}
 		catch(ExcepcionDNICorto e){
 			errorMessage = e.message
-			render (view: "/empresa/crearEmpresa", model: [objetoCreador:objetoCreador,errorMessage:errorMessage])
+			render (view: "/empresa/editarEmpresa", model: [unaEmpresa:unaEmpresa,errorMessage:errorMessage])
 			return
 		}
 
-		empresaACrear=objetoCreador.crearEmpresa()
-
-		try{
-			persistenciaEmpresaService.persistir(empresaACrear)
-		}
-		catch(ExcepcionYaExisteLaEmpresa e){
-			errorMessage = e.message
-			render (view: "/empresa/crearEmpresa", model: [objetoCreador:objetoCreador,errorMessage:errorMessage])
-			return
-		}
+		persistenciaEmpresaService.guardarModificado(unaEmpresa)
 
 		errorMessage = null
 		redirect(action: "verEmpresas")

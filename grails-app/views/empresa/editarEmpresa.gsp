@@ -26,8 +26,8 @@
 			<input class="textox" placeholder="Empresa" type="text" name="nombre" value="${unaEmpresa.nombre}"><br><br>
 			<input class="textox" placeholder="Cuit" type="text" name="cuit" maxLength="11" minLength="11" value="${unaEmpresa.cuit}"><br><br>
 
-			<button class="btn" onclick="${createLink(controller:'empresa', action: 'editar')}">Editar</button>
-			<button class="btn" onclick="${createLink(controller:'empresa', action: 'volver')}">Volver</button>
+			<g:actionSubmit class="btn" controller = 'empresa' action='modificar' value="Editar"></g:actionSubmit>
+			<g:actionSubmit class="btn" controller="empresa" action="volver" value="Volver" />
 		</div>
 	</form>
 	<br>
