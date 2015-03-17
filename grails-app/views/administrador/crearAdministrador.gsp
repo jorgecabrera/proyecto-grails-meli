@@ -22,14 +22,14 @@
 	</g:if>
 	<g:form>
 		<div align="center">
-			<input class="textox" placeholder="username" type="text" name="nombre"
-				value="${administrador.username}"><br> <br> <input
-				class="textox" placeholder="password" type="text" name="password"
-				value="${administrador.password}"><br><br>
-			<g:actionSubmit class="btn" controller="usuarios" action="crear"
+			<input class="textox" placeholder="username" type="text"
+				name="nombre"><br> <br> <input class="textox"
+				placeholder="password" type="text" name="password"><br>
+			<br>
+			<g:actionSubmit class="btn" controller="administrador" action="crear"
 				value="Crear" />
-			<g:actionSubmit class="btn" controller="usuarios" action="volver"
-				value="Volver" />
+			<g:actionSubmit class="btn" controller="administrador"
+				action="volver" value="Volver" />
 		</div>
 	</g:form>
 	<br>

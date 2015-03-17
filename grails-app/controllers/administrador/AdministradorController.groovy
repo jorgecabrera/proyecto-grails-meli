@@ -14,10 +14,18 @@ class AdministradorController {
 	
 	@Secured(["permitAll"])
 	def crearAdministrador(){
+	}
+	
+	@Secured(["permitAll"])
+	def crear(){
 		def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
-		def administradorNuevo = new User(username:'',password:'',enabled:'',accountExpired:'',accountLocked:'',passwordExpired:'');
-		administradorNuevo.save(flush:true)
+		def administradorNuevo = new User(username:'',password:'');
+		
+		administradorNuevo.username = params.nombre;
+		administradorNuevo.password = params.password;	
+		
+		administradorNuevo.save(flush:true);
 		UserRole.create administradorNuevo, adminRole, true;
-		[administrador: administradorNuevo];
+		redirect(uri: "/")
 	}
 }
