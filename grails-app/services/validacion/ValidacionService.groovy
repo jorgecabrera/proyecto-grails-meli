@@ -30,7 +30,7 @@ class ValidacionService {
 		if(usuario.dni.length()<7){
 			throw new ExcepcionDNICorto("El DNI ingresado es muy corto, verifiquelo")
 		}
-		if(usuario.dni=~/^[0-9]+$/)
+		if(!usuario.dni=~/^\d+$/)
 			throw new ExcepcionSoloNumeros("Solo puede haber numeros en el campo DNI")
 	}
 
@@ -40,7 +40,7 @@ class ValidacionService {
 	}
 
 	def validarCuit(def cuit){
-		if(cuit=~/^[0-9]+$/)
+		if(cuit=~/^\d+$/)
 			throw new ExcepcionSoloNumeros("Solo puede haber numeros en el cuit")
 		if(cuit.length() != 11)
 			throw new ExcepcionDNICorto("El Cuit ingresado es muy corto, verifiquelo")

@@ -15,6 +15,7 @@ class UsuariosController {
 
 	def validacionService
 	def persistenciaService
+	def persistenciaEmpresaService
 
 	@Secured(["permitAll"])
 	def index(){
@@ -29,7 +30,7 @@ class UsuariosController {
 		def errorMessage=null
 		def objetoCreador=new ClaseCreadora()
 
-		[objetoCreador:objetoCreador,errorMessage:errorMessage]
+		[objetoCreador:objetoCreador,errorMessage:errorMessage,empresas: persistenciaEmpresaService.obtenerTodasLasEmpresas()]
 	}
 
 	def verUsuarios(){
@@ -64,6 +65,7 @@ class UsuariosController {
 		objetoCreador.urlImagen=params.urlImagen
 		objetoCreador.precioRegalo=params.precioRegalo as float
 		objetoCreador.idRegalo=params.idRegalo
+
 
 		def un= params.fechaDeCumpleanios_year
 		if (params.fechaDeCumpleanios_month.length()==1)
@@ -102,9 +104,12 @@ class UsuariosController {
 		}
 
 		usuarioACrear=objetoCreador.crearUsuario()
-
+		println params.idEmpresa
+		
 		try{
+			persistenciaEmpresaService.obtenerEmpresaPorID(params.idEmpresa as int)?.addToEmpleados(usuarioACrear)
 			persistenciaService.persistir(usuarioACrear)
+
 		}
 		catch(ExcepcionYaExisteElUsuario e){
 			errorMessage = "El usuario ya existe"

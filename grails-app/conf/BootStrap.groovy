@@ -18,8 +18,17 @@ class BootStrap {
 			dni: "28444666",
 			regaloActual: new Regalo(new Date(2014, 9 ,14).clearTime(),"","",0,"")
 		)
+		def u2 = new Usuario(
+			nombre: "Martin",
+			apellido: "Feldsztejn",
+			fechaDeCumpleanios: new Date().clearTime(),
+			dni: "40131909",
+			regaloActual: new Regalo(new Date(2014, 9 ,14).clearTime(),"","",0,"")
+		)
 		e1.addToEmpleados(u1)
+		e1.addToEmpleados(u2)
 		u1.save(failOnError: true, flush: true)
+		u2.save(failOnError: true, flush: true)
 
 		def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true, failOnError:true)
 		def testUser = new User(username: 'admin', password: 'admin')

@@ -1,6 +1,6 @@
 package persistencia
 
-import excepciones.ExcepcionYaExisteElUsuario
+import excepciones.*
 import grails.transaction.Transactional
 import regalo.Regalo
 import empresa.Empresa
@@ -8,7 +8,7 @@ import empresa.Empresa
 @Transactional
 
 //TODO: Acá falta fijarse que las transacciones finalicen correctamente y en base a eso decidir, como está ahora puede fallar y no avisar nunca
-class PersistenciaServiceEmpresa {
+class PersistenciaEmpresaService {
 
 	def persistir(Empresa unaEmpresa){
 		Empresa empresa=null
@@ -38,7 +38,7 @@ class PersistenciaServiceEmpresa {
 		regalos.findAll{it.usuario.empresa.id == id}
 	}
 	
-	def obtenerTodasLasEmpresas()){
+	def obtenerTodasLasEmpresas(){
 		Empresa.list()
 	}
 }

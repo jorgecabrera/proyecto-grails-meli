@@ -1,5 +1,8 @@
 package empresa
 
+import excepciones.*
+import creador.ClaseCreadoraEmpresa
+
 class EmpresaController {
 
     def index() {
@@ -19,12 +22,12 @@ class EmpresaController {
 	}
 
 	def verEmpresas(){
-		[empresas:persistenciaServiceEmpresa.obtenerTodasLasEmpresas()]
+		[empresas:persistenciaEmpresaService.obtenerTodasLasEmpresas()]
 	}
 
 	def mostrarEmpresa(int id) {
 
-		def empresa = persistenciaServiceEmpresa.obtenerEmpresaPorID(id)
+		def empresa = persistenciaEmpresaService.obtenerEmpresaPorID(id)
 
 		[unaEmpresa:unaEmpresa]
 	}
@@ -68,7 +71,7 @@ class EmpresaController {
 		empresaACrear=objetoCreador.crearEmpresa()
 
 		try{
-			persistenciaServiceEmpresa.persistir(empresaACrear)
+			persistenciaEmpresaService.persistir(empresaACrear)
 		}
 		catch(ExcepcionYaExisteLaEmpresa e){
 			errorMessage = e.message
@@ -81,20 +84,20 @@ class EmpresaController {
 
 	def editarEmpresa(){
 
-		def unaEmpresa = persistenciaServiceEmpresa.obtenerEmpresaPorID(params.id as int)
+		def unaEmpresa = persistenciaEmpresaService.obtenerEmpresaPorID(params.id as int)
 
 		[unaEmpresa:unaEmpresa]
 	}
 
 	def eliminar(){
-		persistenciaServiceEmpresa.eliminarEmpresaPorID(params.id as int)
+		persistenciaEmpresaService.eliminarEmpresaPorID(params.id as int)
 		redirect(action: "verEmpresas")
 	}
 
 	def modificar(){
 
 		def errorMessage=null
-		def unaEmpresa = persistenciaServiceEmpresa.obtenerEmpresaPorID(params.id as int)
+		def unaEmpresa = persistenciaEmpresaService.obtenerEmpresaPorID(params.id as int)
 
 		unaEmpresa.nombre=params.nombre
 		unaEmpresa.cuit=params.cuit
@@ -121,7 +124,7 @@ class EmpresaController {
 		empresaACrear=objetoCreador.crearEmpresa()
 
 		try{
-			persistenciaServiceEmpresa.persistir(empresaACrear)
+			persistenciaEmpresaService.persistir(empresaACrear)
 		}
 		catch(ExcepcionYaExisteLaEmpresa e){
 			errorMessage = e.message
