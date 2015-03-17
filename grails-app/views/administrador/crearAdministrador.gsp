@@ -20,18 +20,30 @@
 			</div>
 		</div>
 	</g:if>
-	<g:form>
+	<g:form controller="administrador" action="crear">
 		<div align="center">
 			<input class="textox" placeholder="username" type="text"
-				name="nombre"><br> <br> <input class="textox"
+				name="nombre" id="username"><br><br><input class="textox"
 				placeholder="password" type="text" name="password"><br>
 			<br>
-			<g:actionSubmit class="btn" controller="administrador" action="crear"
-				value="Crear" />
+			<g:actionSubmit class="btn" onClick="return validar()"
+				value="Crear"/>
 			<g:actionSubmit class="btn" controller="administrador"
-				action="volver" value="Volver" />
+				action="volver" value="Volver"/>
 		</div>
 	</g:form>
 	<br>
+	<script type="text/javascript">
+		function validar(){
+			var nombre = $("#username").val();
+			var expreg = new RegExp("^[A-Za-z]*$");
+			var nombreValido = expreg.test(nombre.toString());
+			if(nombreValido == false){
+				alert("El nombre de usuario no es correcto");
+				$("#nombreValido").val("")
+				return nombreValido;
+			}else return true;
+		}
+	</script>
 </body>
 </html>
