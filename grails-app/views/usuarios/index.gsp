@@ -67,12 +67,12 @@
 		</div>
 	</g:else>
 	<div align="center">
-		<a class="btn" href="${createLink(action: 'crearEmpresa', controller: 'empresa')}">Crear Empresa</a>
+		<a class="btn" href="${createLink(action: 'crearAdministrador', controller: 'administrador')}">Crear Administrador</a><br>
+		<a class="btn" href="${createLink(action: 'verAdministradores', controller: 'administrador')}">Ver Administradores</a><br>
+		<a class="btn" href="${createLink(action: 'crearEmpresa', controller: 'empresa')}">Crear Empresa</a><br>
 		<a class="btn" href="${createLink(action: 'verEmpresas', controller: 'empresa')}">Ver Empresas</a><br>
-		<a class="btn" href="${createLink(action: 'crearUsuario', controller: 'usuarios')}">Crear Usuario</a>
+		<a class="btn" href="${createLink(action: 'crearUsuario', controller: 'usuarios')}">Crear Usuario</a><br>
 		<a class="btn" href="${createLink(action: 'verUsuarios', controller: 'usuarios')}">Ver Usuarios</a><br>
-		<a class="btn" href="${createLink(action: 'crearAdministrador', controller: 'usuarios')}">Crear Administrador</a>
-		<a class="btn" href="${createLink(action: 'verAdministradores', controller: 'usuarios')}">Ver Administradores</a>
 	</div>
 	<br>
 </body>
