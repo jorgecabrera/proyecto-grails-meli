@@ -106,16 +106,7 @@ class UsuariosController {
 		usuarioACrear=objetoCreador.crearUsuario()
 		println params.idEmpresa
 		
-		try{
-			persistenciaEmpresaService.obtenerEmpresaPorID(params.idEmpresa as int)?.addToEmpleados(usuarioACrear)
-			persistenciaService.persistir(usuarioACrear)
-
-		}
-		catch(ExcepcionYaExisteElUsuario e){
-			errorMessage = "El usuario ya existe"
-			render (view: "/usuarios/crearUsuario", model: [objetoCreador:objetoCreador,errorMessage:errorMessage])
-			return
-		}
+		persistenciaService.persistir(usuarioACrear, params.idEmpresa)
 
 		redirect(uri: "/")
 	}

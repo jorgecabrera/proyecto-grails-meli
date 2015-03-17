@@ -1,6 +1,7 @@
 package creador
 
 import usuario.Usuario
+import empresa.Empresa
 
 class ClaseCreadora {
 	

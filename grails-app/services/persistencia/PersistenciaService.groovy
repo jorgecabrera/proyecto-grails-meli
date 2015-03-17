@@ -11,18 +11,14 @@ import regalo.Regalo
 //TODO: Acá falta fijarse que las transacciones finalicen correctamente y en base a eso decidir, como está ahora puede fallar y no avisar nunca
 class PersistenciaService {
 
-	def persistir(Usuario unUsuario){
-		println Usuario
-		println unUsuario.dni
-		println unUsuario.class.name
-		def usu = Usuario.list()
-		def a = usu.findByNombre(unUsuario.nombre)
-		def u = usu.findByDni(unUsuario.dni)
-		if (usu!=null)
-			throw new ExcepcionYaExisteElUsuario("Ese usuario ya existe");
-		else
+	def persistir(Usuario unUsuario, idEmpresa){
+		def empresa = Empresa.get(idEmpresa)
+		def u = Usuario.findByDni(unUsuario.dni)
+		if (u==null){
+			empresa.addToEmpleados(unUsuario)
 			if(!unUsuario.save(flush:true, failOnError:true))
-			println unUsuario.regaloActual.idRegalo
+				println unUsuario.regaloActual.idRegalo
+		}
 	}
 
 	def obtenerUsuarioPorID(int id){
