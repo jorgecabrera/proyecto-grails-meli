@@ -56,14 +56,11 @@
 			<div class="alert alert-info">Hoy no hay cumpleaños...</div>
 		</div>
 	</g:else>
-	<g:form controller="usuarios">
-		<div align="center">
-			<g:actionSubmit class="btn" controller="usuarios"
-				action="crearUsuario" value="Crear Usuario" />
-			<g:actionSubmit class="btn" controller="usuarios"
-				action="verUsuarios" value="Ver Usuarios" />
-		</div>
-	</g:form>
+	<div align="center">
+		<input type="button" class="btn" onClick="${createLink(action: 'crearEmpresa', controller: 'empresa')}" value="Crear Empresa" />
+		<input type="button" class="btn" onClick="${createLink(action: 'crearUsuario', controller: 'usuarios')}" value="Crear Usuario" />
+		<input type="button" class="btn" onClick="${createLink(action: 'verUsuarios', controller: 'usuarios')}" value="Ver Usuarios" />
+	</div>
 	<br>
 </body>
 </html>

@@ -14,7 +14,7 @@ class EmpresaController {
     }
 
 	def crearEmpresa(){
-
+		
 		def errorMessage=null
 		def objetoCreador=new ClaseCreadoraEmpresa()
 
