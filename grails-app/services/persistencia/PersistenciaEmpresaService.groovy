@@ -23,7 +23,9 @@ class PersistenciaEmpresaService {
 	def obtenerEmpresaPorID(int id){
 		Empresa empresa = Empresa.get(id)
 	}
-	
+	def obtenerEmpresaPorNombre(String nombre){
+		Empresa empresa = Empresa.findByNombre(nombre)
+	}
 	def eliminarEmpresaPorID(int id){
 		def empresa = obtenerEmpresaPorID(id)
 		empresa.delete(flush:true)
