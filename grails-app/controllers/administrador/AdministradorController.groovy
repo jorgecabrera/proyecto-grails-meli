@@ -2,7 +2,7 @@ package administrador
 import grails.plugin.springsecurity.annotation.*
 import usuario.*
 
-@Secured(["permitAll"])
+@Secured(["ROLE_SUPERADMIN"])
 class AdministradorController {
 	def persistenciaAdminService;
 	

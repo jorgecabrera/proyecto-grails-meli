@@ -12,18 +12,20 @@
 				<thead>
 					<tr>
 						<th>Nombre</th>
-						<th>Apellido</th>
+						<th>Empresa</th>
 					</tr>
 				</thead>
 				<tbody>
 					<g:each in="${administradores}" var="unAdministrador">
 						<tr>
-							<td><a
-								href="${createLink(action:'mostrarAdministrador',controller:'administrador',id:unAdministrador.id)}">
-								${unAdministrador.username}</a></td>
-							<td>
-								${unAdministrador.username}
-							</td>
+							<g:if test="${unAdministrador.empresa != null}">
+								<td>
+									<a href="${createLink(action:'mostrarAdministrador',controller:'administrador',id:unAdministrador.id)}">
+									${unAdministrador.username}</a></td>
+								<td>
+									${unAdministrador.empresa.nombre}
+								</td>
+							</g:if>
 						</tr>
 					</g:each>
 				</tbody>
@@ -42,11 +44,5 @@
 			 value="Crear Administrador" />
 		</div>
 	</g:form>
-	<br>
-	<script>
-		function editarUsuario(id){
-			window.location = "/proyecto-grails-meli/administrador/mostrarUsuario/"+id
-		}	
-	</script>
 </body>
 </html>
