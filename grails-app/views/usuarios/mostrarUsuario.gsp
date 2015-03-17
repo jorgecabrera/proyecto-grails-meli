@@ -13,7 +13,7 @@
 	</div>
 	<br>
 	<g:if test="${unUsuario!=null}">
-		<g:form controller="usuarios">
+		<form>
 			<g:hiddenField name="id" value="${unUsuario.id}" />
 			<div align="center">
 				<label for="nombre2"> <g:message code="Nombre:" /></label> <label
@@ -40,53 +40,56 @@
 					</div>
 				</g:else>
 				<g:if test="${unUsuario.historialDeRegalos!=null}">
-					<label><g:message code="Regalos" /></label><br> <br>
-				<div align="center">
-					<table border="1" class="table table-condensed">
-						<thead>
-							<tr>
-								<th>Url</th>
-								<th>Fecha</th>
-								<th>Imagen</th>
-								<th>Precio</th>
-							</tr>
-						</thead>
-						<tbody>
-							<g:each in="${unUsuario.historialDeRegalos}" var="unRegalo">
-								<g:if test="${unRegalo.regalado}">
-									<tr>
-										<td><a href="	${unRegalo.urlRegalo}" target="_blank">Regalo</a>
-										</td>
-										<td>
-											${unRegalo.fechaRegalado}
-										</td>
-										<td><img src='${unRegalo.urlImagen}' height='42'
-											width='42'></td>
-										<td>
-											${unRegalo.precioRegalo}
-										</td>
-									</tr>
-								</g:if>
-							</g:each>
-						</tbody>
-					</table>
-				</div>
+					<label><g:message code="Regalos" /></label>
+					<br>
+					<br>
+					<div align="center">
+						<table border="1" class="table table-condensed">
+							<thead>
+								<tr>
+									<th>Url</th>
+									<th>Fecha</th>
+									<th>Imagen</th>
+									<th>Precio</th>
+								</tr>
+							</thead>
+							<tbody>
+								<g:each in="${unUsuario.historialDeRegalos}" var="unRegalo">
+									<g:if test="${unRegalo.regalado}">
+										<tr>
+											<td><a href="	${unRegalo.urlRegalo}" target="_blank">Regalo</a>
+											</td>
+											<td>
+												${unRegalo.fechaRegalado}
+											</td>
+											<td><img src='${unRegalo.urlImagen}' height='42'
+												width='42'></td>
+											<td>
+												${unRegalo.precioRegalo}
+											</td>
+										</tr>
+									</g:if>
+								</g:each>
+							</tbody>
+						</table>
+					</div>
 				</g:if>
 				<g:else>
 					<div class="row" align="center">
-						<div class="alert alert-info">El usuario nunca ha recibido regalos</div>
+						<div class="alert alert-info">El usuario nunca ha recibido
+							regalos</div>
 					</div>
 				</g:else>
-				
-				
+
+
 			</div>
 			<div align="center">
-				<g:actionSubmit class="btn" controller="usuarios"
-					action="editarUsuario" value="Editar" />
-				<g:actionSubmit class="btn" controller="usuarios" action="ok"
-					value=" OK " />
+				<a class="btn"
+					href="${createLink(controller:'usuarios', action: 'editarUsuario',params:[id:unUsuario.id])}">Editar</a>
+				<a class="btn"
+					href="${createLink(controller:'usuarios', action: 'ok')}">Ok</a>
 			</div>
-		</g:form>
+		</form>
 	</g:if>
 	<g:else>
 		<div class="row" align="center">
