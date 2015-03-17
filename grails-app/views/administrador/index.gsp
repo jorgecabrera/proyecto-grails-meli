@@ -22,7 +22,7 @@
 								${unAdministrador.username}
 							</td>
 							<td>
-								${unAdministrador.password}
+								${unAdministrador.username}
 							</td>
 						</tr>
 					</g:each>
@@ -36,10 +36,10 @@
 		</div>
 	</g:else>
 	<br>
-	<g:form controller="usuarios">
+	<g:form controller="administrador" action="crearAdministrador">
 		<div align="center">
-			<g:actionSubmit class="btn" controller="usuarios"
-				action="crearAdministrador" value="Crear Administrador" />
+			<g:actionSubmit class="btn" controller="administrador"
+			 value="Crear Administrador" />
 		</div>
 	</g:form>
 	<br>
