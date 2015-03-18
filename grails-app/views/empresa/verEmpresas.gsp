@@ -19,7 +19,7 @@
 					<tr>
 						<th>Nombre</th>
 						<th>Cuit</th>
-						<th>Empleados</th>
+							<th>Empleados</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -35,34 +35,36 @@
 								${empresa.cuit}
 							</td>
 							<td>
-								<table border="1">
-									<thead>
-										<tr>
-											<th>Nombre</th>
-											<th>Apellido</th>
-											<th>DNI</th>
-											<th>Fecha de Nacimiento</th>
-										</tr>
-									</thead>
-									<tbody>
-										<g:each in="${empresa.empleados}" var="unUsuario">
-											<tr onclick="editarUsuario(${unUsuario.id})">
-												<td>
-													${unUsuario.nombre}
-												</td>
-												<td>
-													${unUsuario.apellido}
-												</td>
-												<td>
-													${unUsuario.dni}
-												</td>
-												<td>
-													${unUsuario.fechaDeCumpleanios}
-												</td>
+								<g:if test="${empresa.empleados!=[]}">
+									<table border="1">
+										<thead>
+											<tr>
+												<th>Nombre</th>
+												<th>Apellido</th>
+												<th>DNI</th>
+												<th>Fecha de Nacimiento</th>
 											</tr>
-										</g:each>
-									</tbody>
-								</table>
+										</thead>
+										<tbody>
+											<g:each in="${empresa.empleados}" var="unUsuario">
+												<tr onclick="editarUsuario(${unUsuario.id})">
+													<td>
+														${unUsuario.nombre}
+													</td>
+													<td>
+														${unUsuario.apellido}
+													</td>
+													<td>
+														${unUsuario.dni}
+													</td>
+													<td>
+														${unUsuario.fechaDeCumpleanios}
+													</td>
+												</tr>
+											</g:each>
+										</tbody>
+									</table>
+								</g:if>
 							</td>
 						</tr>
 					</g:each>

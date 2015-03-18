@@ -35,6 +35,7 @@
 					asignar, edite el usuario y asignele uno!</div>
 			</div>
 			<g:form controller="usuarios">
+				<a href="${createLink(controller: 'usuarios', action: 'editarUsuario', id: unRegalo.usuario.id)}" class="btn">Agregar Regalo</a>
 				<g:actionSubmit class="btn" controller="usuarios" action="volver"
 					value="Volver" />
 			</g:form>
