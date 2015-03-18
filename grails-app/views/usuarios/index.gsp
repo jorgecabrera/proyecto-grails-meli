@@ -21,8 +21,9 @@
 		<span id='loginLink'
 			style='position: relative; margin-right: 30px; float: right'>
 			<sec:ifLoggedIn>
-         Logged in as <sec:username /> (<g:link controller='logout'>Logout</g:link>)
-      </sec:ifLoggedIn> <sec:ifNotLoggedIn>
+        		Logged in as <sec:username /> (<g:link controller='logout'>Logout</g:link>)
+      		</sec:ifLoggedIn>
+      		<sec:ifNotLoggedIn>
 				<a href="${createLink(controller:'login',action: 'index')}">Login</a>
 			</sec:ifNotLoggedIn>
 		</span>
@@ -67,12 +68,16 @@
 		</div>
 	</g:else>
 	<div align="center">
-		<a class="btn" href="${createLink(action: 'crearAdministrador', controller: 'administrador')}">Crear Administrador</a><br>
-		<a class="btn" href="${createLink(action: 'index', controller: 'administrador')}">Ver Administradores</a><br>
-		<a class="btn" href="${createLink(action: 'crearEmpresa', controller: 'empresa')}">Crear Empresa</a><br>
-		<a class="btn" href="${createLink(action: 'verEmpresas', controller: 'empresa')}">Ver Empresas</a><br>
-		<a class="btn" href="${createLink(action: 'crearUsuario', controller: 'usuarios')}">Crear Usuario</a><br>
-		<a class="btn" href="${createLink(action: 'verUsuarios', controller: 'usuarios')}">Ver Usuarios</a><br>
+		<sec:ifAnyGranted roles="ROLE_SUPERADMIN">
+			<a class="btn" href="${createLink(action: 'crearAdministrador', controller: 'administrador')}">Crear Administrador</a>
+			<a class="btn" href="${createLink(action: 'index', controller: 'administrador')}">Ver Administradores</a><br>
+			<a class="btn" href="${createLink(action: 'crearEmpresa', controller: 'empresa')}">Crear Empresa</a>
+			<a class="btn" href="${createLink(action: 'verEmpresas', controller: 'empresa')}">Ver Empresas</a><br>
+		</sec:ifAnyGranted>
+		<sec:ifAnyGranted roles="ROLE_ADMIN">
+			<a class="btn" href="${createLink(action: 'crearUsuario', controller: 'usuarios')}">Crear Usuario</a>
+		</sec:ifAnyGranted>
+			<a class="btn" href="${createLink(action: 'verUsuarios', controller: 'usuarios')}">Ver Usuarios</a><br>
 	</div>
 	<br>
 </body>
