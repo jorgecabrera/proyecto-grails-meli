@@ -108,7 +108,7 @@ class UsuariosController {
 
 		redirect(uri: "/")
 	}
-
+	@Secured(['ROLE_ADMIN'])
 	def editarUsuario(){
 		def unUsuario = persistenciaService.obtenerUsuarioPorID(params.id as int)
 		[unUsuario:unUsuario]
@@ -118,7 +118,7 @@ class UsuariosController {
 		persistenciaService.eliminarUsuarioPorID(params.id as int)
 		redirect(action: "verUsuarios")
 	}
-
+	@Secured(['ROLE_ADMIN'])
 	def modificar(){
 
 		def errorMessage=null

@@ -17,17 +17,7 @@
 			<g:message code="¡Bienvenid@! Hoy cumplen..." />
 		</h3>
 	</div>
-	<div>
-		<span id='loginLink'
-			style='position: relative; margin-right: 30px; float: right'>
-			<sec:ifLoggedIn>
-        		Logged in as <sec:username /> (<g:link controller='logout'>Logout</g:link>)
-      		</sec:ifLoggedIn>
-      		<sec:ifNotLoggedIn>
-				<a href="${createLink(controller:'login',action: 'index')}">Login</a>
-			</sec:ifNotLoggedIn>
-		</span>
-	</div>
+	
 	<br>
 	<g:if test="${regalosDeHoy!=[]}">
 		<div align="center">

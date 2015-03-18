@@ -84,8 +84,11 @@
 
 			</div>
 			<div align="center">
+			<sec:ifAnyGranted roles="ROLE_ADMIN">
+		
 				<a class="btn"
 					href="${createLink(controller:'usuarios', action: 'editarUsuario',params:[id:unUsuario.id])}">Editar</a>
+					</sec:ifAnyGranted>
 				<a class="btn"
 					href="${createLink(controller:'usuarios', action: 'ok')}">Ok</a>
 			</div>
