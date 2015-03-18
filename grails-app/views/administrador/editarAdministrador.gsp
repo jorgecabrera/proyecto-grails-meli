@@ -22,11 +22,11 @@
 	<g:form>
 		<g:hiddenField name="id" value="${unAdmin.id}" />
 		<div align="center">
-			<input class="textox" placeholder="username" type="text" name="nombre"
-				value="${unAdmin.username}"><br> <br> <input
-				class="textox" placeholder="password" type="text" name="password"><br> <br> 
-			<g:actionSubmit class="btn" controller="administrador" action="modificar"
-				value="Modificar" />
+			<input class="textox" placeholder="username" type="text"
+				name="username"><br> <br> <input class="textox"
+				placeholder="password" type="text" name="password"><br> <br>
+			<g:actionSubmit class="btn" controller="administrador"
+				action="modificarAdministrador" value="Modificar" />
 		</div>
 	</g:form>
 	<br>

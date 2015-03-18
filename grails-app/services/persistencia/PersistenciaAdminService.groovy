@@ -11,5 +11,7 @@ class PersistenciaAdminService {
 	def obtenerAdminPorID(int id){
 		User unAdministrador = User.get(id)
 	}
-
+	def guardarModificado(User unAdmin){
+		unAdmin.save(flush:true);
+	}
 }
