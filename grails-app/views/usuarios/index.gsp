@@ -62,8 +62,8 @@
 			<a class="btn" href="${createLink(action: 'crearAdministrador', controller: 'administrador')}">Crear Administrador</a>
 			<a class="btn" href="${createLink(action: 'index', controller: 'administrador')}">Ver Administradores</a><br>
 			<a class="btn" href="${createLink(action: 'crearEmpresa', controller: 'empresa')}">Crear Empresa</a>
-			<a class="btn" href="${createLink(action: 'verEmpresas', controller: 'empresa')}">Ver Empresas</a><br>
 		</sec:ifAnyGranted>
+			<a class="btn" href="${createLink(action: 'verEmpresas', controller: 'empresa')}">Ver Empresas</a><br>
 		<sec:ifAnyGranted roles="ROLE_ADMIN">
 			<a class="btn" href="${createLink(action: 'crearUsuario', controller: 'usuarios')}">Crear Usuario</a>
 		</sec:ifAnyGranted>

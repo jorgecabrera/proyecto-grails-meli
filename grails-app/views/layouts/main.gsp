@@ -27,19 +27,19 @@
 		
 		</div>
 		<div>
-		<span id='loginLink'
-			style='position: relative; margin-right: 30px; float: right; font-size: 12pt; margin-top:-1cm; color:white !important'>
-			<sec:ifLoggedIn>
-        		Logged in as <sec:username /> (<g:link controller='logout' style="color: inherit">Logout</g:link>)
-      		</sec:ifLoggedIn>
-      		<sec:ifNotLoggedIn>
-				<a href="${createLink(controller:'login',action: 'index')}" style="color: inherit">Login</a>
-			</sec:ifNotLoggedIn>
-		</span>
+			<span id='loginLink'
+				style='position: relative; margin-right: 30px; float: right; font-size: 12pt; margin-top:-1cm; color:white !important'>
+				<sec:ifLoggedIn>
+	        		Logged in as <sec:username /> (<g:link controller='logout' style="color: inherit">Logout</g:link>)
+	      		</sec:ifLoggedIn>
+	      		<sec:ifNotLoggedIn>
+					<a href="${createLink(controller:'login',action: 'index')}" style="color: inherit">Login</a>
+				</sec:ifNotLoggedIn>
+			</span>
 		</div>
 	</div>
 	</header>
-	<div id="cuerpo">
+	<div id="cuerpo" align="center">
 		<g:layoutBody />
 
 	</div>
