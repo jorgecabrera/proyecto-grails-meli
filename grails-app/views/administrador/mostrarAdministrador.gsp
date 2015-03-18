@@ -21,12 +21,14 @@
 				for="apellido"> <g:message code="${unAdmin.empresa.nombre}" /></label><br>
 			<br>
 			<div align="center">
-				<g:form>
-					<g:actionSubmit class="btn" controller="administrador"
-						action="editar" value="Editar" />
-					<g:actionSubmit class="btn" controller="administrador"
-						action="index" value=" Volver " />
-				</g:form>
+				<div align="center">
+					<a class="btn"
+						href="${createLink(controller:'administrador', action: 'editarAdministrador',params:[id:unAdmin.id])}">Editar</a>
+					<a class="btn"
+						href="${createLink(controller:'administrador', action: 'elminarAdministrador')}">Eliminar</a>
+					<a class="btn"
+						href="${createLink(controller:'administrador', action: 'index')}">Volver</a>
+				</div>
 			</div>
 	</g:if>
 	<g:else>

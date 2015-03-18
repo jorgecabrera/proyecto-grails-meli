@@ -34,4 +34,13 @@ class AdministradorController {
 		def unAdmin = persistenciaAdminService.obtenerAdminPorID(id);
 		[unAdmin:unAdmin]
 	}
+	
+	def editarAdministrador(){
+		def unAdmin = persistenciaAdminService.obtenerAdminPorID(params.id as int)
+		[unAdmin:unAdmin]
+	}
+	
+	def eliminarAdministrador(){
+		
+	}
 }

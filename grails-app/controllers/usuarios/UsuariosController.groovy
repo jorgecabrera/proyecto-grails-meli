@@ -110,9 +110,7 @@ class UsuariosController {
 	}
 
 	def editarUsuario(){
-
 		def unUsuario = persistenciaService.obtenerUsuarioPorID(params.id as int)
-
 		[unUsuario:unUsuario]
 	}
 
