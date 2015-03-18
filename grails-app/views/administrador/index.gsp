@@ -34,15 +34,17 @@
 	</g:if>
 	<g:else>
 		<div class="row" align="center">
-			<div class="alert alert-info">La empresa no tiene administradores</div>
+			<div class="alert alert-info">La empresa no tiene
+				administradores</div>
 		</div>
 	</g:else>
-	<br>
 	<g:form controller="administrador" action="crearAdministrador">
 		<div align="center">
 			<g:actionSubmit class="btn" controller="administrador"
-			 value="Crear Administrador" />
+				value="Crear Administrador" />
+			<a class="btn" href="/proyecto-grails-meli">Volver</a>
 		</div>
 	</g:form>
+	<br>
 </body>
 </html>

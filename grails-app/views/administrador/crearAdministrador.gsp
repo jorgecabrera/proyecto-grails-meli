@@ -33,7 +33,7 @@
 			</div>
 			<g:actionSubmit class="btn" onClick="return validar()" value="Crear" />
 			<g:actionSubmit class="btn" controller="administrador"
-				action="volver" value="Volver" />
+				action="index" value="Volver" />
 		</div>
 	</g:form>
 	<br>
