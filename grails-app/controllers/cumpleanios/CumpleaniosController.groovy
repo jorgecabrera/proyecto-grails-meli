@@ -8,10 +8,11 @@ class CumpleaniosController {
 	def persistenciaEmpresaService;
     def index() { 
 		def message="";
-		if(params.error==1){
+		println params.error
+		if(params.error=="1"){
 			message="No se ha ingresado la empresa, por favor ingrese una"
 		}
-		[empresas:Empresa.list()]
+		[empresas:Empresa.list(),errorMessage:message]
 	}
 	def verCumpleanios(String id){
 		Empresa empresa=persistenciaEmpresaService.obtenerEmpresaPorNombre(id)
