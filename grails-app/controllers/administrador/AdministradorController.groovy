@@ -10,10 +10,8 @@ class AdministradorController {
 		def administradores = persistenciaAdminService.obtenerAdministradores();
 		[administradores:administradores]
 	}
-	
 	def crearAdministrador(){
 	}
-	
 	def crear(){
 		def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
 		def administradorNuevo = new User(username:'',password:'');
@@ -23,7 +21,6 @@ class AdministradorController {
 		UserRole.create administradorNuevo, adminRole, true;
 		redirect(uri: "/")
 	}
-	
 	def volver(){
 		redirect(uri:"/administrador");
 	}
@@ -36,16 +33,15 @@ class AdministradorController {
 		[unAdmin:unAdmin]
 	}
 	def modificarAdministrador(){
-		def unAdmin = persistenciaAdminService.obtenerAdminPorID(params.id as int)
-		unAdmin.username=params.username
-		println params.username
+		def unAdmin = persistenciaAdminService.obtenerAdminPorID(params.id as int);
+		unAdmin.username=params.username;
 		unAdmin.password=params.password
-		println params.password
 		persistenciaAdminService.guardarModificado(unAdmin)
-		redirect(action: "index")
+		redirect(action: "index");
 	}
-	
 	def eliminarAdministrador(){
-		
+		println params.id
+		persistenciaAdminService.eliminarAdminPorID(params.id as int)
+		redirect(action: "index")
 	}
 }
