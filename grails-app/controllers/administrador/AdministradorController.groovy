@@ -16,8 +16,10 @@ class AdministradorController {
 	def crear(){
 		def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
 		def administradorNuevo = new User(username:'',password:'');
+		def unaEmpresa = persistenciaEmpresaService.obtenerEmpresaPorID(params.idEmpresa as int);
 		administradorNuevo.username = params.nombre;
-		administradorNuevo.password = params.password;	
+		administradorNuevo.password = params.password;
+		administradorNuevo.empresa = unaEmpresa;	
 		administradorNuevo.save(flush:true);
 		UserRole.create administradorNuevo, adminRole, true;
 		redirect(uri: "/")
