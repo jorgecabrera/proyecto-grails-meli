@@ -8,7 +8,6 @@ class CumpleaniosController {
 	def persistenciaEmpresaService;
     def index() { 
 		def message="";
-		println params.error
 		if(params.error=="1"){
 			message="No se ha ingresado la empresa, por favor ingrese una"
 		}
