@@ -23,13 +23,17 @@
 	<g:form controller="administrador" action="crear">
 		<div align="center">
 			<input class="textox" placeholder="username" type="text"
-				name="nombre" id="username"><br><br><input class="textox"
-				placeholder="password" type="text" name="password"><br>
+				name="nombre" id="username"><br> <br> <input
+				class="textox" placeholder="password" type="text" name="password"><br>
 			<br>
-			<g:actionSubmit class="btn" onClick="return validar()"
-				value="Crear"/>
+			<div align="center">
+				<g:select id="empresas.id" name="idEmpresa" from="${empresas}"
+					optionKey="id" optionValue="nombre" />
+				<br> <br>
+			</div>
+			<g:actionSubmit class="btn" onClick="return validar()" value="Crear" />
 			<g:actionSubmit class="btn" controller="administrador"
-				action="volver" value="Volver"/>
+				action="volver" value="Volver" />
 		</div>
 	</g:form>
 	<br>

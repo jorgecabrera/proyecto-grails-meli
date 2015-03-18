@@ -5,12 +5,13 @@ import usuario.*
 @Secured(["ROLE_SUPERADMIN"])
 class AdministradorController {
 	def persistenciaAdminService;
-	
+	def persistenciaEmpresaService;
 	def index() {
 		def administradores = persistenciaAdminService.obtenerAdministradores();
 		[administradores:administradores]
 	}
 	def crearAdministrador(){
+		[empresas: persistenciaEmpresaService.obtenerTodasLasEmpresas()]
 	}
 	def crear(){
 		def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)

@@ -102,8 +102,7 @@ class UsuariosController {
 		}
 
 		usuarioACrear=objetoCreador.crearUsuario()
-		println params.idEmpresa
-		
+	
 		persistenciaService.persistir(usuarioACrear, params.idEmpresa)
 
 		redirect(uri: "/")
