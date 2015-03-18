@@ -21,7 +21,7 @@ class PersistenciaEmpresaService {
 	}
 
 	def obtenerEmpresaPorID(int id){
-		Empresa empresa = Empresa.get(id)
+		Empresa.get(id)
 	}
 	
 	def eliminarEmpresaPorID(int id){

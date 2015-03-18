@@ -34,7 +34,7 @@ class EmpresaController {
 
 		def empresa = persistenciaEmpresaService.obtenerEmpresaPorID(id)
 
-		[unaEmpresa:unaEmpresa]
+		[unaEmpresa: empresa]
 	}
 
 	def ok() {
