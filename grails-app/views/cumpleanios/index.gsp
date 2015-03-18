@@ -22,20 +22,20 @@
 		</h3>
 	</div>
 	<br>
-	<g:if test="${errorMessage}">
-		<div class="row" align="center">
-			<div class="alert alert-danger">
-				${errorMessage}
+	
+		<div id="divError" class="row" align="center">
+			<div id="errorMessage" class="alert alert-danger">
+				
 			</div>
 		</div>
-	</g:if>
+	
 	<form>
 		<div align="center">
 			<g:select id="empresasid" name="idEmpresa" from="${empresas}" optionKey="nombre" optionValue="nombre" noSelection="['':'Elija su empresa']"/><br><br>
 
 		<div align="center">
 				<a id="verCumpleanios" class="btn"
-					href="${createLink(controller:'cumpleanios', action: 'verCumpleanios',id:idEmpresa)}">Ver cumpleanios de hoy</a>
+				>Ver cumpleanios de hoy</a>
 				<a class="btn"
 					href="${createLink(controller:'empresa', action: 'crearEmpresa')}">Crear nueva empresa</a>
 			</div>
@@ -44,17 +44,16 @@
 	<br>
 	<script>
 		var val = "";
-		var link="";
+		var link="/proyecto-grails-meli/cumpleanios/verCumpleanios";
+		$("#divError").hide();
 		$('#empresasid').change(function() {
 
 	    val = $(this).val();
 
 	    $("#verCumpleanios").attr('href', function(i, h) {
-		    if(link==""){
-			    link=h;
-			};
 			if(val=="Elija su empresa"){
-				return link;
+				("#errorMessage").html="Por favor, ingrese su empresa"
+				return;
 				}
 	            return link+"/"+val;
 

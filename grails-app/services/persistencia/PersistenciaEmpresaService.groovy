@@ -37,6 +37,7 @@ class PersistenciaEmpresaService {
 
 	def obtenerRegalosHoy(int id){
 		def regalos= Regalo.findAllByFechaRegaladoAndRegalado(new Date().clearTime(),false)
+		println id
 		regalos.findAll{it.usuario.empresa.id == id}
 	}
 	
