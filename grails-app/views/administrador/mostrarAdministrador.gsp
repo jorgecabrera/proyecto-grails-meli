@@ -25,7 +25,7 @@
 					<a class="btn"
 						href="${createLink(controller:'administrador', action: 'editarAdministrador',params:[id:unAdmin.id])}">Editar</a>
 					<a class="btn"
-						href="${createLink(controller:'administrador', action: 'eliminarAdministrador')}">Eliminar</a>
+						href="${createLink(controller:'administrador', action: 'eliminarAdministrador',params:[id:unAdmin.id])}">Eliminar</a>
 					<a class="btn"
 						href="${createLink(controller:'administrador', action: 'index')}">Volver</a>
 				</div>

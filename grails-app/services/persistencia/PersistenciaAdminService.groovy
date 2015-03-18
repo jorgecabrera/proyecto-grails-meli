@@ -1,7 +1,8 @@
 package persistencia
 
 import grails.transaction.Transactional;
-import usuario.User;
+import usuario.*;
+import empresa.*;
 
 @Transactional
 class PersistenciaAdminService {
@@ -15,7 +16,8 @@ class PersistenciaAdminService {
 		unAdmin.save(flush:true);
 	}
 	def eliminarAdminPorID(int id){
-		User unAdmin= User.get(id);
+		User unAdmin= obtenerAdminPorID(id);
+		UserRole.remove(unAdmin, Role.findByAuthority("ROLE_ADMIN"),true)
 		unAdmin.delete(flush:true);
 	}
 }
