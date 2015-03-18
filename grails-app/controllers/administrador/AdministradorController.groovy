@@ -40,7 +40,6 @@ class AdministradorController {
 		redirect(action: "index");
 	}
 	def eliminarAdministrador(){
-		println params.id
 		persistenciaAdminService.eliminarAdminPorID(params.id as int)
 		redirect(action: "index")
 	}
